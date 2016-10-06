@@ -1,0 +1,11 @@
+<div class="cell" :class="{'cell--link': arrow}" data-hook="cell-component" @touchstart="changeBgColor('add', 0)" @touchend="changeBgColor('remove', 150)">
+    <div class="cell__icon" v-if="$slots.icon">
+        <slot name="icon"></slot>
+    </div>
+    <div class="cell__content">
+        <slot name="content"></slot>
+    </div>
+    <div class="cell__label">
+        <slot name="label"></slot>
+    </div>
+</div>
