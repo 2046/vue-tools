@@ -163,7 +163,7 @@
         box-sizing: border-box;
     }
     body{
-        background-color: #f8f8f8;
+        background-color: #efeff4;
     }
 </style>
 

@@ -1,8 +1,5 @@
 export default {
-    '/demo': {
-        component: (resolve) => {require(['pages/demo'], resolve)}
-    },
-    '/bar': {
-        component: (resolve) => {require(['pages/demo2'], resolve)}
+    '/cell': {
+        component: (resolve) => {require(['pages/cell'], resolve)}
     }
 }

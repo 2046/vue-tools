@@ -8,7 +8,7 @@
         template: '<div class="cells"><slot></slot></div>',
         mounted() {
             let $cells = this.$el.querySelectorAll('[data-hook="cell-component"]')
-
+            
             $cells[0].classList.add('cell--first')
             $cells[$cells.length - 1].classList.add('cell--last')
         }

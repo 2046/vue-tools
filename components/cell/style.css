@@ -1,8 +1,9 @@
 .cell{
     position: relative;
     display: flex;
-    padding: 10px 15px; /*no*/
-    font-size: 17px; /*no*/
+    padding: 20px 30px;
+    font-size: 34px;
+    color: #000;
     line-height: 1.41176471;
     overflow: hidden;
     align-items: center;
@@ -18,24 +19,20 @@
     height: 1px; /*no*/
     color: #D9D9D9;
     border-top: 1px solid #D9D9D9; /*no*/
-    transform-origin: 0 0;
-    transform: scaleY(0.5);
 }
 .cell:after {
     position: absolute;
     bottom: 0;
-    left: 0; /*no*/
+    left: 0;
     right: 0;
     content: ' ';
     height: 1px; /*no*/
     color: #D9D9D9;
     border-bottom: 1px solid #D9D9D9; /*no*/
-    transform-origin: 0 100%;
-    transform: scaleY(0.5);
 }
 .cell__icon {
     display: flex;
-    margin-right: 5px; /*no*/
+    margin-right: 20px;
 }
 .cell__icon img{
     vertical-align: top;
@@ -50,17 +47,17 @@
     text-align: right;
 }
 .cell--link .cell__label {
-    padding-right: 13px; /*no*/
+    padding-right: 26px;
 }
 .cell--link .cell__label:after {
     position: absolute;
     top: 50%;
-    right: 2px; /*no*/
-    width: 6px; /*no*/
-    height: 6px; /*no*/
-    margin-top: -4px; /*no*/
+    right: 4px;
+    width: 12px;
+    height: 12px;
+    margin-top: -8px;
     content: ' ';
-    border-width: 2px 2px 0 0; /*no*/
+    border-width: 2px 2px 0 0;
     border-color: #C8C8CD;
     border-style: solid;
     transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
@@ -69,7 +66,7 @@
     background-color: #ECECEC;
 }
 .cells .cell:before {
-    left: 15px; /*no*/
+    left: 30px;
 }
 .cells .cell:after {
     height: 0;
