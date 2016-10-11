@@ -7,7 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
     entry: {
         main: [path.resolve(__dirname, 'entry.js')],
-        // vendors: ['vue', 'vue-router']
+        vendors: ['vue', 'vue-router']
     },
     output: {
         publicPath: '/',
@@ -36,7 +36,7 @@ module.exports = {
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new ExtractTextPlugin('css/[name].[hash:7].css'),
-        // new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.[hash:7].js'),
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.[hash:7].js'),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, 'index.html')
