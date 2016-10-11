@@ -7,7 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
     entry: {
         main: [path.resolve(__dirname, 'entry.js')],
-        vendors: ['vue', 'vue-router']
+        // vendors: ['vue', 'vue-router']
     },
     output: {
         publicPath: '/',
