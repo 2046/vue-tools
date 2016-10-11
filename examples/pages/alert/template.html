@@ -1,6 +1,6 @@
 <div>
     <div @click="show">show</div>
     <transition name = "fade">
-        <alert :visible="visible" :title="title" :text="text" v-on:show="visible = !visible"></alert>
+        <alert :visible="visible" :title="title" :text="text" v-on:show="show"></alert>
     </transition>
 </div>

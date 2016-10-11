@@ -12,8 +12,8 @@ export default {
     data(){
         return {
             visible:false,
-            title:"test",
-            text:"dkajsdhkajshdk"
+            title:"提示",
+            text:"Alert 测试成功"
         }
     },
     methods: {
