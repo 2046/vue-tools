@@ -30,7 +30,7 @@
 
         methods: {
             hide: function() {
-              this.$emit('show')
+              this.$emit('hide')
             }
         },
         watch: {

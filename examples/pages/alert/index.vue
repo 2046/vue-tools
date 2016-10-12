@@ -18,7 +18,10 @@ export default {
     },
     methods: {
         show() {
-            this.visible = !this.visible;
+            this.visible = true;
+        },
+        hide() {
+            this.visible = false;
         }
     }
 }
