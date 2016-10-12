@@ -1,0 +1,54 @@
+<div class="example">
+    <button @click="visiblePopup = true">Show Popup</button>
+    <button @click="visibleFullPopup = true">Show Full Popup</button>
+
+    <Popup :visible="visiblePopup" @hide="visiblePopup = false">
+        <div class="popup__content">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
+            <p>7</p>
+            <p>8</p>
+            <p>9</p>
+            <p>10</p>
+            <p>11</p>
+            <p>12</p>
+            <p>13</p>
+            <p>14</p>
+            <p>15</p>
+            <p>16</p>
+            <p>17</p>
+            <p>18</p>
+            <p>19</p>
+            <p>20</p>
+        </div>
+    </Popup>
+
+    <Popup :visible="visibleFullPopup" is-full>
+        <div class="popup__content popup__content--full">
+            <p @click="hideFullPopup">1</p>
+            <p @click="hideFullPopup">2</p>
+            <p @click="hideFullPopup">3</p>
+            <p @click="hideFullPopup">4</p>
+            <p @click="hideFullPopup">5</p>
+            <p @click="hideFullPopup">6</p>
+            <p @click="hideFullPopup">7</p>
+            <p @click="hideFullPopup">8</p>
+            <p @click="hideFullPopup">9</p>
+            <p @click="hideFullPopup">10</p>
+            <p @click="hideFullPopup">11</p>
+            <p @click="hideFullPopup">12</p>
+            <p @click="hideFullPopup">13</p>
+            <p @click="hideFullPopup">14</p>
+            <p @click="hideFullPopup">15</p>
+            <p @click="hideFullPopup">16</p>
+            <p @click="hideFullPopup">17</p>
+            <p @click="hideFullPopup">18</p>
+            <p @click="hideFullPopup">19</p>
+            <p @click="hideFullPopup">20</p>
+        </div>
+    </Popup>
+</div>

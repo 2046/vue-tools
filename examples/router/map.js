@@ -4,5 +4,8 @@ export default {
     },
     '/swipe': {
         component: (resolve) => {require(['pages/swipe'], resolve)}
+    },
+    '/popup': {
+        component: (resolve) => {require(['pages/popup'], resolve)}
     }
 }
