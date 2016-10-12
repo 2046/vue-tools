@@ -36,11 +36,13 @@
         watch: {
             visible(val) {
                 if(val){
+                    console.log(this.visible)
                     this.onShow()
-                    setTimeout(() => {this.$el.style.opacity = 1})
+                    // setTimeout(() => {this.$el.style.opacity = 1})
                 }else{
+                    console.log(this.visible)
                     this.onHide()
-                    this.$el.style.opacity = 0
+                    // this.$el.style.opacity = 0
                 }
             }
         }
