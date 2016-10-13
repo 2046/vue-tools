@@ -10,5 +10,8 @@ export default {
     },
     '/icon': {
         component: (resolve) => {require(['pages/icon'], resolve)}
+    },
+    '/alert': {
+        component: (resolve) => {require(['pages/alert'], resolve)}
     }
 }
