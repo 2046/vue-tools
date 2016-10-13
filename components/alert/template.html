@@ -2,10 +2,12 @@
     <div class="alert" v-show="visible">
         <transition name="zoomOut">
             <div class="alert__container" v-show="visible">
-                <p class="alert__title">
+                <p class="alert__title" :class="{'alert__title--text': text}">
                     <strong class="alert__title--bold">{{title}}</strong>
                 </p>
-                <p class="alert__info">{{text}}</p>
+                <p class="alert__info" v-if="text">
+                    <span class="alert__info--left">{{text}}</span>
+                </p>
                 <a class="alert__button" href="javascript:;" @click="$emit('hide')">{{buttonText}}</a>
             </div>
         </transition>

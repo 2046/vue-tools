@@ -9,7 +9,6 @@
         margin: 0;
         height: 100%;
         font-size: 14px;
-        overflow: hidden;
         font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
     }
     article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {

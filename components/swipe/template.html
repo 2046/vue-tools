@@ -1,0 +1,8 @@
+<div class="swipe">
+    <div class="swipe__wrap">
+        <slot></slot>
+    </div>
+    <div class="swipe__points" v-if="isPoint">
+        <span class="swipe__point" v-for="item of pointNum" :class="{'swipe__point--active': item}"></span>
+    </div>
+</div>

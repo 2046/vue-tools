@@ -1,0 +1,9 @@
+<transition name="fade">
+    <div class="popup" v-show="visible" @click.self="$emit('hide')">
+        <transition name="slideInUp">
+            <div class="popup__container" v-show="visible" :class="{ 'popup__container--full' : isFull }">
+                <slot></slot>
+            </div>
+        </transition>
+    </div>
+</transition>

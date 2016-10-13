@@ -1,0 +1,10 @@
+.icon {
+    display: inline-block;
+    fill: currentColor;
+}
+.icon--flipToHorizontal {
+    transform: scale(-1, 1);
+}
+.icon--flipToVertical {
+    transform: scale(1, -1);
+}

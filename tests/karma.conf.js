@@ -34,6 +34,10 @@ webpackConfig.module.loaders.some(function(loader, i) {
     }
 })
 
+webpackConfig.plugins = webpackConfig.plugins.filter(function(item) {
+    return !(item instanceof webpack.optimize.CommonsChunkPlugin)
+})
+
 module.exports = function(config) {
     config.set({
         browsers: ['Chrome'],
