@@ -1,0 +1,13 @@
+<transition name="fade">
+    <div class="alert" v-show="visible">
+        <transition name="zoomOut">
+            <div class="alert__container" v-show="visible">
+                <p class="alert__title">
+                    <strong class="alert__title--bold">{{title}}</strong>
+                </p>
+                <p class="alert__info">{{text}}</p>
+                <a class="alert__button" href="javascript:;" @click="$emit('hide')">{{buttonText}}</a>
+            </div>
+        </transition>
+    </div>
+</transition>
