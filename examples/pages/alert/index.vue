@@ -23,18 +23,18 @@
         <div class="button" @click="visibleMessageAlert = true">Show Message Aler Dialog</div>
 
         <Alert :visible="visibleAlert" title="Example" @hide="visibleAlert = false"></Alert>
-        <Alert :visible="visibleMessageAlert" title="Example" text="Example text cjahsdkajshdkajshdkajshdkajshdkajshdkajhsdlkajsldkjalsdkjalskdjlsakjdlaksjdlsakj" @hide="visibleMessageAlert = false"></Alert>
+        <Alert :visible="visibleMessageAlert" title="Example" text="Example text kfjhskjhfajsdlksdjlkjslKDJLkdjlkjsAKSJLAKSDJSLKDNC,ZXCN,ZXMNCKJ,HDFJKSDH" @hide="visibleMessageAlert = false"></Alert>
     </div>
 </template>
 
 
 <script type="text/javascript">
-export default {
-    data() {
-        return {
-            visibleAlert: false,
-            visibleMessageAlert: false
+    export default {
+        data() {
+            return {
+                visibleAlert: false,
+                visibleMessageAlert: false
+            }
         }
     }
-}
 </script>
