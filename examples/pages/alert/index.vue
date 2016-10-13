@@ -1,45 +1,39 @@
 <style scoped>
+    .box{
+        padding-top: 400px;
+    }
     .button{
-        height: 100px;
-        width: 200px;
-        background: rgba(0, 0, 0, 0.5);
+        width: 688px;
+        height: 86px;
+        color: #fff;
+        font-size: 36px;
+        line-height: 80px;
         text-align: center;
-        line-height: 100px;
-        border-radius: 20px;
-        color:#fff;
-        margin: 50px auto;
-        border:1px solid #d5d5d6;
+        margin: 20px auto;
+        outline: 0 none;
+        border-radius: 5px;
+        background-color: #09bb07;
+        border: 1px solid #029400; /*no*/
     }
 </style>
-<template lang="html">
-    <div>
-        <div class="button" @click="show" data-type="alert">alert</div>
-        <div class="button" @click="show" data-type="message">message</div>
-        <alert :visible="visible" :title="title" :text="text" v-on:hide="hide"></alert>
+
+<template>
+    <div class="box">
+        <div class="button" @click="visibleAlert = true">Show Alert Dialog</div>
+        <div class="button" @click="visibleMessageAlert = true">Show Message Aler Dialog</div>
+
+        <Alert :visible="visibleAlert" title="Example" @hide="visibleAlert = false"></Alert>
+        <Alert :visible="visibleMessageAlert" title="Example" text="Example text cjahsdkajshdkajshdkajshdkajshdkajshdkajhsdlkajsldkjalsdkjalskdjlsakjdlaksjdlsakj" @hide="visibleMessageAlert = false"></Alert>
     </div>
 </template>
 
 
 <script type="text/javascript">
 export default {
-    data(){
+    data() {
         return {
-            visible:false,
-            title:"提示",
-            text:"Alert 测试成功"
-        }
-    },
-    methods: {
-        show(event) {
-            let type = event.currentTarget.dataset.type;
-            if(type === 'message'){
-                this.title = '';
-                this.text = "message 测试成功"
-            }
-            this.visible = true;
-        },
-        hide() {
-            this.visible = false;
+            visibleAlert: false,
+            visibleMessageAlert: false
         }
     }
 }

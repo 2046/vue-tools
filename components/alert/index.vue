@@ -2,48 +2,14 @@
 <template src="./template.html"></template>
 
 <script>
-
     export default {
         props: {
-            visible: {
-                type: Boolean
-            },
-            onShow: {
-                type: Function,
-                default: function(){}
-            },
-            onHide: {
-                type: Function,
-                default: function(){}
-            },
-            title: {
-                type: String
-            },
-            text: {
-                type: String
-            },
+            text: String,
+            title: String,
+            visible: Boolean,
             buttonText: {
                 type: String,
                 default: '确定'
-            }
-        },
-
-        methods: {
-            hide: function() {
-              this.$emit('hide')
-            }
-        },
-        watch: {
-            visible(val) {
-                if(val){
-                    console.log(this.visible)
-                    this.onShow()
-                    // setTimeout(() => {this.$el.style.opacity = 1})
-                }else{
-                    console.log(this.visible)
-                    this.onHide()
-                    // this.$el.style.opacity = 0
-                }
             }
         }
     }

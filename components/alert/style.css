@@ -1,4 +1,4 @@
-.overlay {
+.alert {
     display: flex;
     position: fixed;
     top: 0;
@@ -10,13 +10,7 @@
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
 }
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 5s ease;
-}
-.fade-enter, .fade-leave-active {
-    opacity: 0;
-}
-.dialog {
+.alert__container {
     width: 85%;
     max-width: 650px;
     flex-direction: column;
@@ -24,7 +18,7 @@
     background-color: #fff;
     overflow: hidden;
 }
-.dialog .title {
+.alert__title {
     padding: 38px 20px 16px;
     font-size: 32px;
     line-height: 50px;
@@ -32,10 +26,10 @@
     word-wrap: break-word;
     word-break: break-all;
 }
-.dialog .title strong {
+.alert__title--bold {
     font-weight: 400;
 }
-.dialog .info {
+.alert__info {
     padding: 0 20px;
     color: #888;
     font-size: 28px;
@@ -44,7 +38,7 @@
     word-wrap: break-word;
     word-break: break-all;
 }
-.dialog a {
+.alert__button {
     display: block;
     margin-top: 20px;
     height: 84px;
@@ -52,6 +46,22 @@
     font-size: 30px;
     line-height: 84px;
     text-align: center;
-    border-top: 0.5px solid #d5d5d6;
-    /*no*/
+    border-top: 1px solid #d5d5d6; /*no*/
+}
+.fade-enter, .fade-leave-active {
+    opacity: 0;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .4s;
+}
+.zoomOut-enter {
+    opacity: 0;
+    transform: scale(1.185);
+}
+.zoomOut-enter-active {
+    transition: transform .4s, opacity .4s;
+}
+.zoomOut-leave-active {
+    opacity: 0;
+    transition: opacity .4s;
 }
