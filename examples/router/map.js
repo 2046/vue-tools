@@ -7,5 +7,8 @@ export default {
     },
     '/popup': {
         component: (resolve) => {require(['pages/popup'], resolve)}
+    },
+    '/icon': {
+        component: (resolve) => {require(['pages/icon'], resolve)}
     }
 }
