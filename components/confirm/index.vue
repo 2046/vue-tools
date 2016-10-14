@@ -8,7 +8,7 @@
             title: {
                 type: String,
                 required: true
-            }
+            },
             visible: {
                 type: Boolean,
                 required: true
