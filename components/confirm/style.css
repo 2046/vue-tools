@@ -1,0 +1,83 @@
+.confirm {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.confirm__container {
+    width: 75%;
+    max-width: 560px;
+    flex-direction: column;
+    border-radius: 7px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.confirm__title {
+    padding: 40px 20px 20px;
+    font-size: 36px;
+    line-height: 70px;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.confirm__title--text {
+    padding-bottom: 0;
+}
+.confirm__title--bold {
+    font-weight: 400;
+}
+.confirm__info {
+    padding: 0 30px 20px;
+    color: #999;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.confirm__info--left{
+    text-align: left;
+    display: inline-block;
+}
+.confirm__button {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.confirm__button--ok,
+.confirm__button--cancel {
+    flex: 2;
+    display: block;
+    height: 100px;
+    color: #00c200;
+    font-size: 36px;
+    line-height: 100px;
+    text-align: center;
+    border-top: 1px solid #d5d5d6; /*no*/
+}
+.confirm__button--cancel{
+    color: #888;
+    border-right: 0.5px solid #d5d5d6; /*no*/
+}
+.fade-enter, .fade-leave-active {
+    opacity: 0;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .4s;
+}
+.zoomOut-enter {
+    opacity: 0;
+    transform: scale(1.185);
+}
+.zoomOut-enter-active {
+    transition: transform .4s, opacity .4s;
+}
+.zoomOut-leave-active {
+    opacity: 0;
+    transition: opacity .4s;
+}

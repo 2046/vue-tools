@@ -14,6 +14,9 @@ export default {
     '/alert': {
         component: (resolve) => {require(['pages/alert'], resolve)}
     },
+    '/confirm': {
+        component: (resolve) => {require(['pages/confirm'], resolve)}
+    },
     '/toast': {
         component: (resolve) => {require(['pages/toast'], resolve)}
     },
