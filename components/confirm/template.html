@@ -1,0 +1,18 @@
+<transition name="fade">
+    <div class="confirm" v-show="visible">
+        <transition name="zoomOut">
+            <div class="confirm__container" v-show="visible">
+                <p class="confirm__title" :class="{'confirm__title--text': text}">
+                    <strong class="confirm__title--bold">{{title}}</strong>
+                </p>
+                <p class="confirm__info" v-if="text">
+                    <span class="confirm__info--left">{{text}}</span>
+                </p>
+                <div class="confirm__button">
+                    <a class="confirm__button--ok" href="javascript:;" @click="$emit('hide', true)">{{buttonOkText}}</a>
+                    <a class="confirm__button--cancel" href="javascript:;" @click="$emit('hide', false)">{{buttonCancelText}}</a>
+                </div>
+            </div>
+        </transition>
+    </div>
+</transition>
