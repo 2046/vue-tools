@@ -26,6 +26,8 @@
 <template src="./template.html"></template>
 
 <script>
+    import Loading from 'components/loading'
+
     export default {
         data() {
             return {
@@ -38,6 +40,9 @@
                     setTimeout(() => {this.visibleLoading = false}, 2000)
                 }
             }
+        },
+        components: {
+            Loading
         }
     }
 </script>

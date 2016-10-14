@@ -29,6 +29,8 @@
 
 
 <script type="text/javascript">
+    import Confirm from 'components/confirm'
+
     export default {
         data() {
             return {
@@ -45,6 +47,9 @@
                 this.visibleConfirm1 = false
                 console.log(val+'1')
             }
+        },
+        components: {
+            Confirm
         }
     }
 </script>

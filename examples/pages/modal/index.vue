@@ -50,11 +50,16 @@
 
 
 <script type="text/javascript">
+    import Modal from 'components/modal'
+
     export default {
         data() {
             return {
                 visibleDialog: false,
             }
+        },
+        components: {
+            Modal
         }
     }
 </script>

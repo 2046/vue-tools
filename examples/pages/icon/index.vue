@@ -35,4 +35,10 @@
     import Icon from 'components/icon'
 
     Icon.add(icons)
+
+    export default {
+        components: {
+            Icon
+        }
+    }
 </script>

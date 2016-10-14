@@ -42,6 +42,8 @@
 <template src="./template.html"></template>
 
 <script>
+    import Popup from 'components/popup'
+
     export default {
         data() {
             return {
@@ -53,6 +55,9 @@
             hideFullPopup() {
                 this.visibleFullPopup = false
             }
+        },
+        components: {
+            Popup
         }
     }
 </script>

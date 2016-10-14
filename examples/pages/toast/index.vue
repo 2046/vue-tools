@@ -26,6 +26,8 @@
 <template src="./template.html"></template>
 
 <script>
+    import Toast from 'components/toast'
+
     export default {
         data() {
             return {
@@ -34,6 +36,9 @@
                 visibleNormalToast: false,
                 visibleSuccessToast: false
             }
+        },
+        components: {
+            Toast
         }
     }
 </script>

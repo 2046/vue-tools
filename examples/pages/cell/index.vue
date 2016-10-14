@@ -9,5 +9,14 @@
         font-size: 28px;
     }
 </style>
-
 <template src="./template.html"></template>
+
+<script>
+    import Cell from 'components/cell'
+
+    export default {
+        components: {
+            Cell
+        }
+    }
+</script>

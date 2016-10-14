@@ -12,5 +12,14 @@
         width: 100%;
     }
 </style>
-
 <template src="./template.html"></template>
+
+<script>
+    import Swipe from 'components/swipe'
+
+    export default {
+        components: {
+            Swipe
+        }
+    }
+</script>

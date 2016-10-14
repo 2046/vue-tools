@@ -29,12 +29,17 @@
 
 
 <script type="text/javascript">
+    import Alert from 'components/alert'
+
     export default {
         data() {
             return {
                 visibleAlert: false,
                 visibleMessageAlert: false
             }
+        },
+        components: {
+            Alert
         }
     }
 </script>
