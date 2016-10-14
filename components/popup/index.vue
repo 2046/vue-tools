@@ -5,7 +5,10 @@
     export default {
         props: {
             isFull: Boolean,
-            visible: Boolean
+            visible: {
+                type: Boolean,
+                required: true
+            }
         }
     }
 </script>
