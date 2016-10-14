@@ -13,5 +13,11 @@ export default {
     },
     '/alert': {
         component: (resolve) => {require(['pages/alert'], resolve)}
+    },
+    '/toast': {
+        component: (resolve) => {require(['pages/toast'], resolve)}
+    },
+    '/loading': {
+        component: (resolve) => {require(['pages/loading'], resolve)}
     }
 }
