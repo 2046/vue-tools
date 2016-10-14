@@ -22,5 +22,8 @@ export default {
     },
     '/loading': {
         component: (resolve) => {require(['pages/loading'], resolve)}
+    },
+    '/modal': {
+        component: (resolve) => {require(['pages/modal'], resolve)}
     }
 }

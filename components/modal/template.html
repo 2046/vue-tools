@@ -1,0 +1,9 @@
+<transition name="fade">
+    <div class="modal" v-show="visible">
+        <transition name="zoomOut">
+            <div class="modal__container" v-show="visible">
+                <slot></slot>
+            </div>
+        </transition>
+    </div>
+</transition>
