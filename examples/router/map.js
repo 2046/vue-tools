@@ -16,5 +16,11 @@ export default {
     },
     '/confirm': {
         component: (resolve) => {require(['pages/confirm'], resolve)}
+    },
+    '/toast': {
+        component: (resolve) => {require(['pages/toast'], resolve)}
+    },
+    '/loading': {
+        component: (resolve) => {require(['pages/loading'], resolve)}
     }
 }

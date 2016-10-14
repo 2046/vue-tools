@@ -4,10 +4,13 @@
 <script>
     export default {
         props: {
-            isFull: Boolean,
             visible: {
                 type: Boolean,
                 required: true
+            },
+            text: {
+                type: String,
+                default: '数据加载中'
             }
         }
     }
