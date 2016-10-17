@@ -24,14 +24,14 @@
                 type: String,
                 required: true
             },
+            model: {
+                type: null,
+                required: true
+            },
             errorHandle: {
                 type: Function,
                 default(message, rule, name, element, val) {
-                    if(this.$alert) {
-                        this.$alert(message)
-                    }else {
-                        alert(message)
-                    }
+                    this.$alert ? this.$alert(message) : alert(message)
                 }
             },
             rule: String,
@@ -62,11 +62,9 @@
         },
         methods: {
             execute() {
-                let val = this.element.value
-
                 for(let rule of this.tasks){
-                    if(rules[rule] && !rules[rule][0](val, this.element, rule, this)){
-                        this.showMessage(val, this.element, rule, this.name, this)
+                    if(rules[rule] && !rules[rule][0](this.model, this.element, rule, this)){
+                        this.showMessage(this.model, this.element, rule, this.name, this)
                         return false
                     }
                 }
@@ -116,11 +114,11 @@
     }
 
     function getElementByInput(el) {
-        return [
-            ...el.getElementsByTagName('input'),
-            ...el.getElementsByTagName('select'),
-            ...el.getElementsByTagName('textarea')
-        ][0]
+        return getElementsByTagName(el, 'input') || getElementsByTagName(el, 'select') || getElementsByTagName(el, 'textarea')
+    }
+
+    function getElementsByTagName(el, selector) {
+        return [...el.getElementsByTagName(selector)][0]
     }
 
     function guid() {

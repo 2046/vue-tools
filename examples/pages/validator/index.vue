@@ -1,6 +1,5 @@
 <style>
     .fields{
-        border-top: 1px solid #D9D9D9;
         background-color: #fff;
     }
     .fields .field{
@@ -8,9 +7,10 @@
         display: flex;
         padding: 20px 30px;
         color: #000;
-        font-size: 34px;
+        font-size: 30px;
         line-height: 1.41176471;
         align-items: center;
+        border-bottom: 1px solid #D9D9D9;
     }
     .fields .field label{
         width: 105px;
@@ -18,6 +18,21 @@
         word-wrap: break-word;
     }
     .fields .field input{
+        width: 100%;
+    }
+    input[type="submit"]{
+        width: 100%;
+        height: 86px;
+        color: #fff;
+        font-size: 36px;
+        line-height: 80px;
+        text-align: center;
+        margin-bottom: 20px;
+        outline: 0 none;
+        border: 0 none;
+        background-color: #09bb07;
+    }
+    select{
         width: 100%;
     }
 </style>
@@ -29,12 +44,27 @@
     export default {
         data() {
             return {
-                text: ''
+                tel: '',
+                url: '',
+                date: '',
+                text: '',
+                radio: '',
+                email: '',
+                number: '',
+                select: '',
+                textarea: '',
+                password: '',
+                checkbox: []
             }
         },
         methods: {
             done() {
-                console.log(this.text)
+                alert('验证通过')
+            }
+        },
+        mounted() {
+            window.log = () => {
+                console.log(this.radio)
             }
         },
         components: {

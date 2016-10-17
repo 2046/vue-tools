@@ -2,11 +2,77 @@
     <div class="fields">
         <div class="field">
             <label for="text">文本</label>
-            <Validator name="文本" required class="input">
-                <input type="text" v-model="text" name="text" id="text">
+            <Validator name="文本" required :model="text" class="input" maxlength="16" minlength="8">
+                <input type="text" v-model="text" id="text" placeholder="请输入文本">
+            </Validator>
+        </div>
+        <div class="field">
+            <label for="password">密码</label>
+            <Validator name="密码" required :model="password" class="input">
+                <input type="password" v-model="password" id="password" placeholder="请输入密码">
+            </Validator>
+        </div>
+        <div class="field">
+            <label for="mobile">手机</label>
+            <Validator name="电话号码" required :model="tel" rule="mobile" class="input">
+                <input type="tel" v-model="tel" id="mobile" placeholder="请输入电话号码">
+            </Validator>
+        </div>
+        <div class="field">
+            <label for="email">邮箱</label>
+            <Validator name="邮箱" required :model="email" rule="email" class="input">
+                <input type="email" v-model="email" id="email" placeholder="请输入邮箱">
+            </Validator>
+        </div>
+        <div class="field">
+            <label for="url">链接</label>
+            <Validator name="链接" required :model="url" rule="url" class="input">
+                <input type="url" v-model="url" id="url" placeholder="请输入链接">
+            </Validator>
+        </div>
+        <div class="field">
+            <label for="date">日期</label>
+            <Validator name="日期" required :model="date" rule="date" class="input">
+                <input type="date" v-model="date" id="date" placeholder="请输入日期">
+            </Validator>
+        </div>
+        <div class="field">
+            <label for="number">数字</label>
+            <Validator name="数字" required :model="number" rule="number" class="input" max="20" min="10">
+                <input type="number" v-model="number" id="number" placeholder="请输入数字">
+            </Validator>
+        </div>
+        <div class="field">
+            <label for="textarea">文本域</label>
+            <Validator name="文本域" required :model="textarea" class="input">
+                <textarea v-model="textarea" id="textarea" placeholder="请输入文本域"></textarea>
+            </Validator>
+        </div>
+        <div class="field">
+            <label for="select">选择器</label>
+            <Validator name="选择器" required :model="select" class="input">
+                <select id="select" v-model="select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </Validator>
+        </div>
+        <div class="field">
+            <label for="checkboxa">多选</label>
+            <Validator name="多选" required :model="checkbox">
+                <input type="checkbox" v-model="checkbox" value="checkboxa" id="checkboxa">多选A
+                <input type="checkbox" v-model="checkbox" value="checkboxb" id="checkboxb">多选B
+            </Validator>
+        </div>
+        <div class="field">
+            <label for="radioa">单选</label>
+            <Validator name="单选" required :model="radio" class="input">
+                <input type="radio" v-model="radio" value="单选A" id="radioa">单选A
+                <input type="radio" v-model="radio" value="单选B" id="radiob">单选B
             </Validator>
         </div>
     </div>
 
-    <input type="submit" value="submit">
+    <input type="submit" value="提交">
 </form>

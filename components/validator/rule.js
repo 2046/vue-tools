@@ -9,8 +9,9 @@ addRule('number', /^[+-]?[1-9][0-9]*(\.[0-9]+)?([eE][+-][1-9][0-9]*)?$|^[+-]?0?\
 addRule('required', (val, element, rule, ctx) => {
     switch (element.type) {
         case 'radio':
-        case 'checkbox':
             return Boolean(val)
+        case 'checkbox':
+            return Array.isArray(val) ? Boolean(val.length) : Boolean(val)
         default:
             return Boolean(trim(val))
     }
