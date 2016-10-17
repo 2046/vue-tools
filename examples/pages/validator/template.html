@@ -1,0 +1,12 @@
+<form v-submit.prevent="done">
+    <div class="fields">
+        <div class="field">
+            <label for="text">文本</label>
+            <Validator name="文本" required class="input">
+                <input type="text" v-model="text" name="text" id="text">
+            </Validator>
+        </div>
+    </div>
+
+    <input type="submit" value="submit">
+</form>

@@ -25,5 +25,8 @@ export default {
     },
     '/modal': {
         component: (resolve) => {require(['pages/modal'], resolve)}
+    },
+    '/validator': {
+        component: (resolve) => {require(['pages/validator'], resolve)}
     }
 }
