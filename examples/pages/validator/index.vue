@@ -32,6 +32,10 @@
         border: 0 none;
         background-color: #09bb07;
     }
+    .fields .field input[type="checkbox"],
+    .fields .field input[type="radio"]{
+        width: auto;
+    }
     select{
         width: 100%;
     }
