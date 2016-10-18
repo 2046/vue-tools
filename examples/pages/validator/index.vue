@@ -66,11 +66,6 @@
                 alert('验证通过')
             }
         },
-        mounted() {
-            window.log = () => {
-                console.log(this.radio)
-            }
-        },
         components: {
             Validator
         }

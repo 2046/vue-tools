@@ -8,7 +8,7 @@ definition = {
         el.dataset.novalidate = el.getAttribute('novalidate')
         el.setAttribute('novalidate', 'novalidate')
 
-        el.addEventListener('submit', (e) => {
+        el.callback = function(e) {
             let count, components
 
             count = 0
@@ -29,7 +29,9 @@ definition = {
             if(count === components.length) {
                 binding.value(e)
             }
-        }, false)
+        }
+
+        el.addEventListener('submit', el.callback, false)
     },
     unbind(el, binding, vnode) {
         if(el.dataset.novalidate === null) {
@@ -38,7 +40,7 @@ definition = {
             el.setAttribute('novalidate', el.dataset.novalidate)
         }
 
-        el.removeEventListener('submit')
+        el.removeEventListener('submit', el.callback, false)
         delete el.dataset.novalidate
     }
 }

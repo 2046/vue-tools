@@ -1,16 +1,3 @@
-<style scoped>
-    .validator{
-        display: inline-block;
-        flex: 1;
-    }
-</style>
-
-<template>
-    <div class="validator" :data-uuid="uuid">
-        <slot></slot>
-    </div>
-</template>
-
 <script>
     import Vue from 'vue'
     import { refs, definition } from './directive'
@@ -28,7 +15,7 @@
                 type: null,
                 required: true
             },
-            errorHandle: {
+            error: {
                 type: Function,
                 default(message, rule, name, element, val) {
                     this.$alert ? this.$alert(message) : alert(message)
@@ -78,10 +65,36 @@
                     message = message.replace(`{{${rule}}}`, this[rule])
                 }
 
-                this.errorHandle(message, rule, name, element, val)
+                this.error(message, rule, name, element, val)
             }
         },
+        render(h) {
+            let children = this.$slots.default
+
+            if(!children) {
+                console.error('Validator component must contain the input element')
+                return
+            }
+
+            children = children.filter(c => c.tag)
+
+            if(!children.length) {
+                console.error('Validator component must contain the input element')
+                return
+            }
+
+            if(children.length !== 1) {
+                console.error('Validator component template should contain exactly one root element')
+                return
+            }
+
+            return children[0]
+        },
         mounted() {
+            if(this.$el.nodeType === 8) {
+                return
+            }
+
             if(!getElementByForm(this.$el)) {
                 console.error('Validator component must within the form element')
                 return
@@ -93,10 +106,8 @@
             }
 
             refs[this.uuid = guid()] = this
-
-            this.$nextTick(function () {
-                replaceParentNode(this.$el)
-            })
+            this.$el.dataset.uuid = this.uuid
+            this.$el.classList.add('validator')
         },
         destroyed() {
             delete refs[this.uuid]
@@ -118,11 +129,15 @@
     }
 
     function getElementByInput(el) {
-        return getElementsByTagName(el, 'input') || getElementsByTagName(el, 'select') || getElementsByTagName(el, 'textarea')
-    }
+        if(!el.tagName) {
+            return null
+        }
 
-    function getElementsByTagName(el, selector) {
-        return [...el.getElementsByTagName(selector)][0]
+        if(el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'TEXTAREA') {
+            return el
+        }
+
+        return getElementByInput(el.children[0])
     }
 
     function guid() {
@@ -131,22 +146,5 @@
         }
 
         return `${s4()}${s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`
-    }
-
-    function replaceParentNode(el){
-        let parentNode = el.parentNode;
-        let children = el.children;
-        let className = el.className.split(' ');
-        let dataUuid = el.dataset.uuid;
-        if(children.length !== 1){
-            console.error('Component template should contain exactly one root element')
-            return;
-        }
-        children[0].dataset.uuid = dataUuid;
-        for (var i = 0; i < className.length; i++) {
-            children[0].classList.add(className[i])
-        }
-        parentNode.appendChild(children[0])
-        parentNode.removeChild(el)
     }
 </script>
