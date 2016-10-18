@@ -93,6 +93,24 @@
             }
 
             refs[this.uuid = guid()] = this
+
+            this.$nextTick(function () {
+                let parentNode = this.$el.parentNode;
+                let children = this.$el.children;
+                let className = this.$el.className.split(' ');
+                let dataUuid = this.$el.dataset.uuid;
+                if(children.length !== 1){
+                    console.error('Component template should contain exactly one root element')
+                    return;
+                }
+                children[0].dataset.uuid = dataUuid;
+                for (var i = 0; i < className.length; i++) {
+                    children[0].classList.add(className[i])
+                }
+                parentNode.appendChild(children[0])
+                parentNode.removeChild(this.$el)
+
+            })
         },
         destroyed() {
             delete refs[this.uuid]
