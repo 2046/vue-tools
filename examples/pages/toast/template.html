@@ -1,11 +1,13 @@
-<div class="example">
-    <button @click="visibleNormalToast = true">Show Normal Toast</button>
-    <button @click="visibleSuccessToast = true">Show Success Toast</button>
-    <button @click="visibleErrorToast = true">Show Error Toast</button>
-    <button @click="visibleWarnToast = true">Show Warning Toast</button>
+<Layout>
+    <div class="example">
+        <button @click="visibleNormalToast = true">Show Normal Toast</button>
+        <button @click="visibleSuccessToast = true">Show Success Toast</button>
+        <button @click="visibleErrorToast = true">Show Error Toast</button>
+        <button @click="visibleWarnToast = true">Show Warning Toast</button>
 
-    <Toast :visible="visibleNormalToast" text="已发送" @hide="visibleNormalToast = false"></Toast>
-    <Toast :visible="visibleSuccessToast" text="已发送" type="success" @hide="visibleSuccessToast = false"></Toast>
-    <Toast :visible="visibleErrorToast" text="已发送" type="error" @hide="visibleErrorToast = false"></Toast>
-    <Toast :visible="visibleWarnToast" text="已发送" type="warn" @hide="visibleWarnToast = false"></Toast>
-</div>
+        <Toast :visible="visibleNormalToast" text="已发送" @hide="visibleNormalToast = false"></Toast>
+        <Toast :visible="visibleSuccessToast" text="已发送" type="success" @hide="visibleSuccessToast = false"></Toast>
+        <Toast :visible="visibleErrorToast" text="已发送" type="error" @hide="visibleErrorToast = false"></Toast>
+        <Toast :visible="visibleWarnToast" text="已发送" type="warn" @hide="visibleWarnToast = false"></Toast>
+    </div>
+</Layout>

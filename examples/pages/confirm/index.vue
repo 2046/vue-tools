@@ -18,13 +18,15 @@
 </style>
 
 <template>
-    <div class="box">
-        <div class="button" @click="visibleConfirm = true">Show Confirm</div>
-        <div class="button" @click="visibleConfirm1 = true">Show Confirm text</div>
+    <Layout>
+        <div class="box">
+            <div class="button" @click="visibleConfirm = true">Show Confirm</div>
+            <div class="button" @click="visibleConfirm1 = true">Show Confirm text</div>
 
-        <Confirm :visible="visibleConfirm" title="Example" @hide="hide"></Confirm>
-        <Confirm :visible="visibleConfirm1" title="Example" text="confirm contont text" @hide="hide1"></Confirm>
-    </div>
+            <Confirm :visible="visibleConfirm" title="Example" @hide="hide"></Confirm>
+            <Confirm :visible="visibleConfirm1" title="Example" text="confirm contont text" @hide="hide1"></Confirm>
+        </div>
+    </Layout>
 </template>
 
 

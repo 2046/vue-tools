@@ -1,16 +1,18 @@
-<div class="example">
-    <button @click="visiblePopup = true">Show Popup</button>
-    <button @click="visibleFullPopup = true">Show Full Popup</button>
+<Layout>
+    <div class="example">
+        <button @click="visiblePopup = true">Show Popup</button>
+        <button @click="visibleFullPopup = true">Show Full Popup</button>
 
-    <Popup :visible="visiblePopup" @hide="visiblePopup = false">
-        <div class="popup__content">
-            <p v-for="n in 20">{{ n }}</p>
-        </div>
-    </Popup>
+        <Popup :visible="visiblePopup" @hide="visiblePopup = false">
+            <div class="popup__content">
+                <p v-for="n in 20">{{ n }}</p>
+            </div>
+        </Popup>
 
-    <Popup :visible="visibleFullPopup" is-full>
-        <div class="popup__content popup__content--full">
-            <p @click="hideFullPopup" v-for="n in 20">{{ n }}</p>
-        </div>
-    </Popup>
-</div>
+        <Popup :visible="visibleFullPopup" is-full>
+            <div class="popup__content popup__content--full">
+                <p @click="hideFullPopup" v-for="n in 20">{{ n }}</p>
+            </div>
+        </Popup>
+    </div>
+</Layout>

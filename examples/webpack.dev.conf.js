@@ -6,37 +6,22 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     entry: {
-        main: [path.resolve(__dirname, 'entry.js')],
-        vendors: ['vue', 'vue-router']
+        main: [path.resolve(__dirname, 'entry.js')]
     },
     output: {
-        publicPath: '/',
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name].[hash:7].js',
-        chunkFilename: 'js/[id].[hash:7].js'
+        filename: 'bundle.js'
     },
     resolve: {
         extensions: ['', '.js', '.css', '.vue', '.json'],
         alias: {
             'vue': 'vue/dist/vue.js',
-            'components': path.resolve(__dirname, '..', 'components'),
-            'pages': path.resolve(__dirname, 'pages')
+            'pages': path.resolve(__dirname, 'pages'),
+            'components': path.resolve(__dirname, '..', 'components')
         }
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new ExtractTextPlugin('css/[name].[hash:7].css'),
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'js/vendors.[hash:7].js'),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, 'index.html')
@@ -52,7 +37,7 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style', 'css')
+            loader: 'style!css'
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url',
@@ -74,9 +59,6 @@ module.exports = {
         plugins: ['transform-runtime']
     },
     vue: {
-        loaders: {
-            css: ExtractTextPlugin.extract('vue-style-loader', 'css-loader')
-        },
         postcss: [
             px2rem({
                 remUnit: 75

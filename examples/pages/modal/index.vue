@@ -36,16 +36,18 @@
 </style>
 
 <template>
-    <div class="box">
-        <div class="button" @click="visibleDialog = true">Show Modal</div>
+    <Layout>
+        <div class="box">
+            <div class="button" @click="visibleDialog = true">Show Modal</div>
 
-        <Modal :visible="visibleDialog">
-            <p class="box__content">Example</p>
-            <p class="buttonBox">
-                <a href="javascript:;" class="buttonBox__closeButton" @click="visibleDialog = false">关闭</a>
-            </p>
-        </Modal>
-    </div>
+            <Modal :visible="visibleDialog">
+                <p class="box__content">Example</p>
+                <p class="buttonBox">
+                    <a href="javascript:;" class="buttonBox__closeButton" @click="visibleDialog = false">关闭</a>
+                </p>
+            </Modal>
+        </div>
+    </Layout>
 </template>
 
 

@@ -9,6 +9,7 @@
         margin: 0;
         height: 100%;
         font-size: 14px;
+        overflow: hidden;
         font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
     }
     article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -164,8 +165,119 @@
     body{
         background-color: #efeff4;
     }
+    .slideInRight-enter {
+        transform: translateX(100%);
+    }
+    .slideInRight-enter-active {
+        width: 100%;
+        transition: transform .4s ease;
+    }
+    .slideOutRight-enter {
+        transform: translateX(-100%);
+    }
+    .slideOutRight-enter-active {
+        width: 100%;
+        transition: transform .4s ease;
+    }
 </style>
 
 <template>
-    <router-view></router-view>
+    <transition :name="transitionName">
+        <router-view></router-view>
+    </transition>
 </template>
+
+<script>
+    let urls = []
+
+    export default {
+        data() {
+            return {
+                transitionName: ''
+            }
+        },
+        watch: {
+            '$route' (to, from) {
+                if(urls[urls.length - 2] === to.path) {
+                    this.transitionName = 'slideOutRight'
+                    urls.splice(urls.lastIndexOf(to.path), 1)
+                    urls.splice(urls.lastIndexOf(from.path), 1)
+                }else {
+                    if(urls.length > 0) {
+                        this.transitionName = 'slideInRight'
+                    }
+                }
+
+                urls.push(this.$route.path)
+            }
+        },
+        mounted() {
+            stopBouncingScroll()
+        }
+    }
+
+    function stopBouncingScroll(){
+        if(supportScrolling()){
+            let startY, startX, curY, curX
+
+            window.addEventListener('touchstart', (evt) => {
+                startX = evt.touches ? evt.touches[0].screenX : evt.screenX
+                startY = evt.touches ? evt.touches[0].screenY : evt.screenY
+            }, false)
+
+            window.addEventListener('touchmove', (evt) => {
+                let el = evt.target
+
+                while(el !== document.body){
+                    let style, canScroll, overflowY, height, scrolling, isScrollable
+
+                    if(!(style = window.getComputedStyle(el))){
+                        break
+                    }
+
+                    canScroll = el.scrollHeight > el.offsetHeight
+                    overflowY = style.getPropertyValue('overflow-y')
+                    height = parseInt(style.getPropertyValue('height'), 10)
+                    scrolling = style.getPropertyValue('-webkit-overflow-scrolling')
+                    isScrollable = scrolling === 'touch' && (overflowY === 'auto' || overflowY === 'scroll')
+
+                    if(isScrollable && canScroll){
+                        let isAtTop, isAtBottom
+
+                        curX = evt.touches ? evt.touches[0].screenX : evt.screenX
+                        curY = evt.touches ? evt.touches[0].screenY : evt.screenY
+
+                        isAtTop = (startY <= curY && el.scrollTop === 0)
+                        isAtBottom = (startY >= curY && Math.abs(curY - startY) > Math.abs(curX - startX) && (el.scrollHeight - el.scrollTop) <= (height + 5))
+
+                        if (isAtTop || isAtBottom) {
+                            evt.preventDefault()
+                        }
+                        return
+                    }
+
+                    el = el.parentNode
+                }
+
+                curX = evt.touches ? evt.touches[0].screenX : evt.screenX
+                curY = evt.touches ? evt.touches[0].screenY : evt.screenY
+
+                if(Math.abs(curY - startY) > Math.abs(curX - startX)){
+                    evt.preventDefault()
+                }
+            }, false)
+        }
+    }
+
+    function supportScrolling() {
+        let scrollSupport, element
+
+        element = document.createElement('div')
+        document.documentElement.appendChild(element)
+        element.style.WebkitOverflowScrolling = 'touch'
+        scrollSupport = 'getComputedStyle' in window && window.getComputedStyle(element)['-webkit-overflow-scrolling'] === 'touch'
+        document.documentElement.removeChild(element)
+
+        return scrollSupport
+    }
+</script>
