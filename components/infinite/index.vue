@@ -7,7 +7,7 @@
             disabled: Boolean,
             distance: {
                 type: [String, Number],
-                default: 0
+                default: 400
             }
         },
         data() {
