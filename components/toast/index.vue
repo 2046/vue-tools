@@ -16,7 +16,7 @@
             },
             time: {
                 type: [Number, String],
-                default: 1000
+                default: 2000
             },
             text: {
                 type: String
