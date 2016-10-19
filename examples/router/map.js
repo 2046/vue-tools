@@ -28,5 +28,8 @@ export default {
     },
     '/validator': {
         component: (resolve) => {require(['pages/validator'], resolve)}
+    },
+    '/infinite': {
+        component: (resolve) => {require(['pages/infinite'], resolve)}
     }
 }
