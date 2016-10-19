@@ -62,7 +62,12 @@
             }
         },
         methods: {
-            done() {
+            done(err, event) {
+                if(err) {
+                    alert(err.message)
+                    return
+                }
+
                 alert('验证通过')
             }
         },

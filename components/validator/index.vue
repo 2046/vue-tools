@@ -15,12 +15,6 @@
                 type: null,
                 required: true
             },
-            error: {
-                type: Function,
-                default(message, rule, name, element, val) {
-                    this.$alert ? this.$alert(message) : alert(message)
-                }
-            },
             rule: String,
             required: Boolean,
             min: [Number, String],
@@ -51,34 +45,32 @@
             execute() {
                 for(let rule of this.tasks){
                     if(rules[rule] && !rules[rule][0](this.model, this.element, rule, this)){
-                        this.showMessage(this.model, this.element, rule, this.name, this)
-                        return false
+                        return {
+                            rule: rule,
+                            name: this.name,
+                            value: this.model,
+                            element: this.element,
+                            message: this.getMessage(rule, this.name)
+                        }
                     }
                 }
 
                 return true
             },
-            showMessage(val, element, rule, name, ctx) {
+            getMessage(rule, name) {
                 let message = rules[rule][1].replace('{{name}}', name)
 
                 if(this[rule]){
                     message = message.replace(`{{${rule}}}`, this[rule])
                 }
 
-                this.error(message, rule, name, element, val)
+                return message
             }
         },
         render(h) {
             let children = this.$slots.default
 
             if(!children) {
-                console.error('Validator component must contain the input element')
-                return
-            }
-
-            children = children.filter(c => c.tag)
-
-            if(!children.length) {
                 console.error('Validator component must contain the input element')
                 return
             }

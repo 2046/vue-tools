@@ -9,7 +9,7 @@ definition = {
         el.setAttribute('novalidate', 'novalidate')
 
         el.callback = function(e) {
-            let count, components
+            let count, components, result
 
             count = 0
             components = [...el.getElementsByClassName('validator')]
@@ -19,16 +19,14 @@ definition = {
             }
 
             for(let component of components) {
-                if(!refs[component.dataset.uuid].execute()) {
+                if((result = refs[component.dataset.uuid].execute()) !== true) {
                     break
                 }
 
                 count += 1
             }
 
-            if(count === components.length) {
-                binding.value(e)
-            }
+            binding.value(count === components.length ? null : result, e)
         }
 
         el.addEventListener('submit', el.callback, false)
