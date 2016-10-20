@@ -31,5 +31,8 @@ export default {
     },
     '/infinite': {
         component: (resolve) => {require(['pages/infinite'], resolve)}
+    },
+    '/video': {
+        component: (resolve) => {require(['pages/video'], resolve)}
     }
 }
