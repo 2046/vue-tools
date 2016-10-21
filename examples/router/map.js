@@ -37,5 +37,8 @@ export default {
     },
     '/header': {
         component: (resolve) => {require(['pages/header'], resolve)}
+    },
+    '/layout': {
+        component: (resolve) => {require(['pages/layout'], resolve)}
     }
 }
