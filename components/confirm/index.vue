@@ -5,14 +5,8 @@
     export default {
         props: {
             text: String,
-            title: {
-                type: String,
-                required: true
-            },
-            visible: {
-                type: Boolean,
-                required: true
-            },
+            title: String,
+            visible: Boolean,
             buttonOkText: {
                 type: String,
                 default: '确定'

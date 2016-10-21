@@ -7,10 +7,7 @@
 
     export default {
         props: {
-            visible: {
-                type: Boolean,
-                required: true
-            },
+            visible: Boolean,
             type: {
                 type: String
             },
