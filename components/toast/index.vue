@@ -7,16 +7,17 @@
 
     export default {
         props: {
-            visible: Boolean,
-            type: {
+            type: String,
+            text: {
                 type: String
+            },
+            visible: {
+                type: Boolean,
+                required: true
             },
             time: {
                 type: [Number, String],
                 default: 2000
-            },
-            text: {
-                type: String
             }
         },
         data() {
