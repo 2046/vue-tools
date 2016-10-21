@@ -97,7 +97,9 @@
                 this.state.error = true
             },
             progressEvent(e) {
-                this.preloadProgress = (this.videoElementRef.buffered.end(this.videoElementRef.buffered.length - 1) / this.videoElementRef.duration) * 100
+                if(this.videoElementRef.buffered.length) {
+                    this.preloadProgress = (this.videoElementRef.buffered.end(0) / this.videoElementRef.duration) * 100
+                }
             },
             volumeChangeEvent(e) {
                 console.log(e)
