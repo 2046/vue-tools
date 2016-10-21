@@ -8,5 +8,8 @@ export default new Router({
     mode: 'history',
     routes: Object.keys(routes).reduce((previous, current) => {
         return (previous.push({path: current, component: routes[current].component}), previous)
-    }, [])
+    }, []),
+    scrollBehavior(to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    }
 })
