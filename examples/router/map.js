@@ -34,5 +34,8 @@ export default {
     },
     '/video': {
         component: (resolve) => {require(['pages/video'], resolve)}
+    },
+    '/header': {
+        component: (resolve) => {require(['pages/header'], resolve)}
     }
 }
