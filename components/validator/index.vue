@@ -113,7 +113,7 @@
             return null
         }
 
-        if(el.tagName === 'FORM') {
+        if(el.tagName.toUpperCase() === 'FORM') {
             return el
         }
 
@@ -125,7 +125,7 @@
             return null
         }
 
-        if(el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'TEXTAREA') {
+        if(el.tagName.toUpperCase() === 'INPUT' || el.tagName.toUpperCase() === 'SELECT' || el.tagName.toUpperCase() === 'TEXTAREA') {
             return el
         }
 
