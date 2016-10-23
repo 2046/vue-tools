@@ -1,23 +1,23 @@
 {
-  "name": "vui",
+  "name": "vue-tools",
   "version": "0.0.1",
-  "description": "vue ui components",
+  "description": "vue tools",
   "keywords": [
     "vue",
     "vui",
-    "vue-ui",
+    "vue-tools",
     "vue-components"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/2046/vui.git"
+    "url": "git+https://github.com/2046/vue-tools.git"
   },
   "author": "2046",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/2046/vui/issues"
+    "url": "https://github.com/2046/vue-tools/issues"
   },
-  "homepage": "https://github.com/2046/vui",
+  "homepage": "https://github.com/2046/vue-tools",
   "dependencies": {
     "vue": "^2.0.0",
     "vue-resource": "^0.7.2",
