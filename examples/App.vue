@@ -172,11 +172,19 @@
         width: 100%;
         transition: transform .4s ease;
     }
+    .slideInRight-leave-active {
+        transform: translateX(-100%);
+        transition: transform .4s ease;
+    }
     .slideOutRight-enter {
         transform: translateX(-100%);
     }
     .slideOutRight-enter-active {
         width: 100%;
+        transition: transform .4s ease;
+    }
+    .slideOutRight-leave-active {
+        transform: translateX(100%);
         transition: transform .4s ease;
     }
 </style>
