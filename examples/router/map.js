@@ -1,4 +1,7 @@
 export default {
+    '/': {
+        component: (resolve) => {require(['pages/index'], resolve)}
+    },
     '/cell': {
         component: (resolve) => {require(['pages/cell'], resolve)}
     },
