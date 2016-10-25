@@ -54,6 +54,9 @@
     text-align: center;
     border-top: 1px solid #d5d5d6; /*no*/
 }
+.alert__button--access {
+    background-color: #ECECEC;
+}
 .fade-enter, .fade-leave-active {
     opacity: 0;
 }

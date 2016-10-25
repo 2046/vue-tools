@@ -17,6 +17,13 @@
                 type: String,
                 default: '确定'
             }
+        },
+        methods: {
+            changeBgColor(action, time, e) {
+                setTimeout(() => {
+                    e.target.classList[action]('alert__button--access')
+                }, time)
+            }
         }
     }
 </script>
