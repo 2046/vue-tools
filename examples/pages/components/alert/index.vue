@@ -21,7 +21,7 @@
     <Layout>
         <div class="box">
             <div class="button" @click="visibleAlert = true">Show Alert Dialog</div>
-            <div class="button" @click="visibleMessageAlert = true">Show Message Aler Dialog</div>
+            <div class="button" @click="visibleMessageAlert = true">Show Message Alert Dialog</div>
 
             <Alert :visible="visibleAlert" title="Example" @hide="visibleAlert = false"></Alert>
             <Alert :visible="visibleMessageAlert" title="Example" text="Example text" @hide="visibleMessageAlert = false"></Alert>

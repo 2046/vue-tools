@@ -2,46 +2,46 @@ export default {
     '/': {
         component: (resolve) => {require(['pages/index'], resolve)}
     },
-    '/cell': {
-        component: (resolve) => {require(['pages/cell'], resolve)}
+    '/components/cell': {
+        component: (resolve) => {require(['pages/components/cell'], resolve)}
     },
-    '/swipe': {
-        component: (resolve) => {require(['pages/swipe'], resolve)}
+    '/components/wipe': {
+        component: (resolve) => {require(['pages/components/swipe'], resolve)}
     },
-    '/popup': {
-        component: (resolve) => {require(['pages/popup'], resolve)}
+    '/components/popup': {
+        component: (resolve) => {require(['pages/components/popup'], resolve)}
     },
-    '/icon': {
-        component: (resolve) => {require(['pages/icon'], resolve)}
+    '/components/icon': {
+        component: (resolve) => {require(['pages/components/icon'], resolve)}
     },
-    '/alert': {
-        component: (resolve) => {require(['pages/alert'], resolve)}
+    '/components/alert': {
+        component: (resolve) => {require(['pages/components/alert'], resolve)}
     },
-    '/confirm': {
-        component: (resolve) => {require(['pages/confirm'], resolve)}
+    '/components/confirm': {
+        component: (resolve) => {require(['pages/components/confirm'], resolve)}
     },
-    '/toast': {
-        component: (resolve) => {require(['pages/toast'], resolve)}
+    '/components/toast': {
+        component: (resolve) => {require(['pages/components/toast'], resolve)}
     },
-    '/loading': {
-        component: (resolve) => {require(['pages/loading'], resolve)}
+    '/components/loading': {
+        component: (resolve) => {require(['pages/components/loading'], resolve)}
     },
-    '/modal': {
-        component: (resolve) => {require(['pages/modal'], resolve)}
+    '/components/modal': {
+        component: (resolve) => {require(['pages/components/modal'], resolve)}
     },
-    '/validator': {
-        component: (resolve) => {require(['pages/validator'], resolve)}
+    '/components/validator': {
+        component: (resolve) => {require(['pages/components/validator'], resolve)}
     },
-    '/infinite': {
-        component: (resolve) => {require(['pages/infinite'], resolve)}
+    '/components/infinite': {
+        component: (resolve) => {require(['pages/components/infinite'], resolve)}
     },
-    '/video': {
-        component: (resolve) => {require(['pages/video'], resolve)}
+    '/components/video': {
+        component: (resolve) => {require(['pages/components/video'], resolve)}
     },
-    '/header': {
-        component: (resolve) => {require(['pages/header'], resolve)}
+    '/components/header': {
+        component: (resolve) => {require(['pages/components/header'], resolve)}
     },
-    '/layout': {
-        component: (resolve) => {require(['pages/layout'], resolve)}
+    '/components/layout': {
+        component: (resolve) => {require(['pages/components/layout'], resolve)}
     }
 }

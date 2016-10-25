@@ -41,7 +41,7 @@ hotMiddleware = webpackHotMiddleware(compiler, {
 })
 
 app.use(webpackDevServer())
-app.use(function *(next){    
+app.use(function *(next){
     this.body = yield readFile(path.join(compiler.outputPath, 'index.html'))
     this.type = 'text/html'
 })
