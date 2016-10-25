@@ -64,6 +64,9 @@
     color: #888;
     border-right: 0.5px solid #d5d5d6; /*no*/
 }
+.button--access {
+    background-color: #ECECEC;
+}
 .fade-enter, .fade-leave-active {
     opacity: 0;
 }

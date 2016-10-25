@@ -21,6 +21,13 @@
                 type: String,
                 default: '取消'
             }
+        },
+        methods: {
+            changeBgColor(action, time, e) {
+                setTimeout(() => {
+                    e.target.classList[action]('button--access')
+                }, time)
+            }
         }
     }
 </script>

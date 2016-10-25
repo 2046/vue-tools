@@ -9,8 +9,8 @@
                     <span class="confirm__info--left">{{text}}</span>
                 </p>
                 <div class="confirm__button">
-                    <a class="confirm__button--ok" href="javascript:;" @click="$emit('hide', true)">{{buttonOkText}}</a>
-                    <a class="confirm__button--cancel" href="javascript:;" @click="$emit('hide', false)">{{buttonCancelText}}</a>
+                    <a class="confirm__button--ok" href="javascript:;" @click="$emit('hide', true)" @touchstart="changeBgColor('add', 0, $event)" @touchend="changeBgColor('remove', 150, $event)">{{buttonOkText}}</a>
+                    <a class="confirm__button--cancel" href="javascript:;" @click="$emit('hide', false)" @touchstart="changeBgColor('add', 0, $event)" @touchend="changeBgColor('remove', 150, $event)">{{buttonCancelText}}</a>
                 </div>
             </div>
         </transition>
