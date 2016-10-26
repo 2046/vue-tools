@@ -64,5 +64,8 @@ export default {
     },
     '/plugins/eventBus': {
         component: (resolve) => {require(['pages/plugins/eventBus'], resolve)}
+    },
+    '/plugins/ajax': {
+        component: (resolve) => {require(['pages/plugins/ajax'], resolve)}
     }
 }

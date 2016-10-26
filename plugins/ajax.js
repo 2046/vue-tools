@@ -81,9 +81,10 @@ function plugin(Vue, opts) {
 
     Vue.http.interceptors.push((request, next) => {
         next((response) => {
+            clearTimeout(request.timerId)
+            delete request.timerId
+
             if(response.status === 0 && response.statusText === '') {
-                clearTimeout(request.timerId)
-                delete request.timerId
                 errorCallback('Network error')
             }
 
