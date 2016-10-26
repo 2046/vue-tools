@@ -46,5 +46,8 @@ export default {
     },
     '/plugins/alert': {
         component: (resolve) => {require(['pages/plugins/alert'], resolve)}
+    },
+    '/plugins/confirm': {
+        component: (resolve) => {require(['pages/plugins/confirm'], resolve)}
     }
 }
