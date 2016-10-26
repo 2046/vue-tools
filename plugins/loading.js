@@ -19,6 +19,8 @@ function plugin(Vue) {
     function method(visible, text) {
         if(text) {
             component.text = text
+        }else {
+            component.text = '数据加载中'
         }
 
         component.visible = visible
