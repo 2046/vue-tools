@@ -58,5 +58,8 @@ export default {
     },
     '/plugins/env': {
         component: (resolve) => {require(['pages/plugins/env'], resolve)}
+    },
+    '/plugins/cookie': {
+        component: (resolve) => {require(['pages/plugins/cookie'], resolve)}
     }
 }
