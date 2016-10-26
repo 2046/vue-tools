@@ -1,4 +1,4 @@
-import Loading from 'components/Loading'
+import Loading from 'components/loading'
 
 function plugin(Vue) {
     if(plugin.installed){
@@ -17,7 +17,10 @@ function plugin(Vue) {
     component = new Component({propsData}).$mount(container)
 
     function method(visible, text) {
-        component.text = text
+        if(text) {
+            component.text = text
+        }
+
         component.visible = visible
     }
 

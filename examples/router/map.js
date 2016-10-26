@@ -49,5 +49,8 @@ export default {
     },
     '/plugins/confirm': {
         component: (resolve) => {require(['pages/plugins/confirm'], resolve)}
+    },
+    '/plugins/loading': {
+        component: (resolve) => {require(['pages/plugins/loading'], resolve)}
     }
 }
