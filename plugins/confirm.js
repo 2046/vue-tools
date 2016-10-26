@@ -21,7 +21,7 @@ function plugin(Vue) {
     function method(title = '', text = '', onHide = noop) {
         component.text = text
         component.title = title
-        component.visible = visible
+        component.visible = true
         component.$on('hide', (bool) => {
             onHide(bool)
             component.visible = false
