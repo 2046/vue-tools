@@ -17,7 +17,6 @@ if (ua.match(/Weibo/i)) {
 if (!app) {
     app = {
         name: 'unknown',
-        isKaniu: false,
         isWeibo: false,
         isWeixin: false
     }
