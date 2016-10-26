@@ -18,10 +18,22 @@ function plugin(Vue) {
     document.getElementsByTagName('body')[0].appendChild(container)
     component = new Component({propsData}).$mount(container)
 
-    function method(title = '', text = '', onHide = noop) {
+    function method(title = '', text = '', buttonText, onHide = noop) {
+        if(typeof buttonText === 'function') {
+            onHide = buttonText
+            buttonText = ''
+        }
+
         component.text = text
         component.title = title
         component.visible = true
+
+        if(buttonText) {
+            component.buttonText = buttonText
+        }else {
+            component.buttonText = '确定'
+        }
+
         component.$on('hide', () => {
             onHide()
             component.visible = false
