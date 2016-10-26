@@ -52,5 +52,8 @@ export default {
     },
     '/plugins/loading': {
         component: (resolve) => {require(['pages/plugins/loading'], resolve)}
+    },
+    '/plugins/toast': {
+        component: (resolve) => {require(['pages/plugins/toast'], resolve)}
     }
 }
