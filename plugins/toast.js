@@ -18,10 +18,30 @@ function plugin(Vue) {
     document.getElementsByTagName('body')[0].appendChild(container)
     component = new Component({propsData}).$mount(container)
 
-    function method(type = '', text, time) {
-        component.type = type
+    function method(type, text, time) {
+        if(typeof text === 'number') {
+            time = text
+            text = ''
+        }
+
+        if(['success', 'error', 'warn'].indexOf(type) === -1) {
+            text = type
+            type = ''
+        }
+
+        if(time) {
+            component.time = time
+        }else {
+            component.time = 2000
+        }
+
+        if(type) {
+            component.type = type
+        }else {
+            component.type = ''
+        }
+
         component.text = text
-        component.time = time
         component.visible = true
         component.$on('hide', () => {
             component.visible = false
