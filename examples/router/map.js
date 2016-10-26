@@ -55,5 +55,8 @@ export default {
     },
     '/plugins/toast': {
         component: (resolve) => {require(['pages/plugins/toast'], resolve)}
+    },
+    '/plugins/env': {
+        component: (resolve) => {require(['pages/plugins/env'], resolve)}
     }
 }
