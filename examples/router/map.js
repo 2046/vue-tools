@@ -61,5 +61,8 @@ export default {
     },
     '/plugins/cookie': {
         component: (resolve) => {require(['pages/plugins/cookie'], resolve)}
+    },
+    '/plugins/eventBus': {
+        component: (resolve) => {require(['pages/plugins/eventBus'], resolve)}
     }
 }
