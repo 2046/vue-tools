@@ -8,20 +8,12 @@ function plugin(Vue, opts) {
         return
     }
 
-    let apis, url, weixin, promise
+    let apis, url, weixin
 
     weixin = {}
     opts = Object.assign({}, { url: '' }, opts)
     url = `${opts.url}${opts.url.indexOf('?') < 0 ? '?' : '&'}url=${encodeURIComponent(location.href)}`
     apis = Object.keys(window.wx).filter((item) => ['config', 'ready', 'error', 'checkJsApi'].indexOf(item) === -1)
-
-    promise = {
-        queue: [],
-        done: false,
-        execute(callback) {
-            this.done ? callback() : this.queue.push(callback)
-        }
-    }
 
     getJSONP(url, (res) => {
         window.wx.config(Object.assign({}, res.data, {
@@ -29,18 +21,12 @@ function plugin(Vue, opts) {
             jsApiList: apis
         }))
 
-        window.wx.ready(() => {
-            promise.done = true
-            promise.queue.map((item) => item())
-            promise.queue = []
-        })
-
         window.wx.error((res) => alert(JSON.stringify(res)))
     })
 
     apis.map((item) => {
         weixin[item] = (options) => {
-            promise.execute(() => {
+            window.wx.ready(() => {
                 window.wx[item](options)
             })
         }
