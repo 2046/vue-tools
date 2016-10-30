@@ -62,7 +62,7 @@ function isFunction(val) {
     return Object.prototype.toString.call(val) === '[object Function]'
 }
 
-export {
+module.exports = {
     rules,
     getRule,
     addRule

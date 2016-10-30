@@ -1,6 +1,6 @@
-import Vue from 'vue'
+let refs, definition, Vue
 
-let refs, definition
+Vue = require('vue')
 
 refs = {}
 definition = {
@@ -43,7 +43,7 @@ definition = {
     }
 }
 
-export {
+module.exports = {
     refs,
     definition
 }
