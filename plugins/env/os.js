@@ -1,7 +1,6 @@
-import Version from './version'
+let os, matched, ua, Version
 
-let os, matched, ua
-
+Version = require('./version')
 ua = window.navigator.userAgent
 
 if ((matched = ua.match(/Windows\sPhone\s(?:OS\s)?([\d\.]+)/))) {
@@ -43,4 +42,4 @@ if (!os) {
     }
 }
 
-export default os
+module.exports = os

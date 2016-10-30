@@ -1,7 +1,9 @@
-import os from './os'
-import app from './app'
-import Version from './version'
-import browser from './browser'
+let os, app, Version, browser
+
+os = require('./os')
+app = require('./app')
+Version = require('./version')
+browser = require('./browser')
 
 let env = {
     os,

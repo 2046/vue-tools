@@ -1,4 +1,4 @@
-import Version from './version'
+let Version = require('./version')
 
 let browser, matched, ua
 
@@ -78,4 +78,4 @@ if (!browser) {
     }
 }
 
-export default browser
+module.exports = browser

@@ -1,4 +1,4 @@
-import Alert from 'components/alert'
+let Alert = require('components/alert')
 
 function plugin(Vue) {
     if(plugin.installed){

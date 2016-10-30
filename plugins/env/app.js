@@ -22,4 +22,4 @@ if (!app) {
     }
 }
 
-export default app
+module.exports = app

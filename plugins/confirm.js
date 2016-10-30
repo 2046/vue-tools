@@ -1,4 +1,4 @@
-import Confirm from 'components/confirm'
+let Confirm = require('components/confirm')
 
 function plugin(Vue) {
     if(plugin.installed){

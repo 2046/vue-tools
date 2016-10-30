@@ -1,6 +1,8 @@
-import resource from 'vue-resource'
+let resource, CACHE
 
-let CACHE = []
+resource = require('vue-resource')
+
+CACHE = []
 
 function plugin(Vue, opts) {
     if(plugin.installed) {
