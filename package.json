@@ -1,6 +1,6 @@
 {
   "name": "vue-tools",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "vue tools",
   "keywords": [
     "vue",
@@ -63,7 +63,9 @@
     "webpack-merge": "^0.15.0"
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
   "scripts": {
     "start": "node examples/server.js",
