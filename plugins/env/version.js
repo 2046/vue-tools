@@ -1,4 +1,4 @@
-function Version {}
+function Version() {}
 
 Version.compare = function(v1, v2) {
     v1 = v1.toString().split('.')
