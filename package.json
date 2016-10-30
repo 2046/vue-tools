@@ -1,6 +1,6 @@
 {
   "name": "vue-tools",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "vue tools",
   "keywords": [
     "vue",
@@ -8,6 +8,7 @@
     "vue-tools",
     "vue-components"
   ],
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/2046/vue-tools.git"
