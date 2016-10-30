@@ -1,6 +1,8 @@
 const SPLIT_PATTERN = /\s+/
 
-let eventBus = new class Events {
+function Events() {}
+
+Events.prototype = {
     on(eventNames, callback, ctx) {
         let cache, eventName
 
@@ -14,7 +16,7 @@ let eventBus = new class Events {
         }
 
         return this
-    }
+    },
     once(eventNames, callback, ctx) {
         let that = this
 
@@ -24,7 +26,7 @@ let eventBus = new class Events {
         }
 
         return this.on(eventNames, cb, ctx)
-    }
+    },
     off(eventNames, callback, ctx) {
         let index, cache, eventName, list
 
@@ -54,7 +56,7 @@ let eventBus = new class Events {
         }
 
         return this
-    }
+    },
     trigger(eventNames) {
         let index, len, list, args, returned, eventName, cache
 
@@ -121,6 +123,8 @@ function callEach(list, args, ctx) {
 
     return pass
 }
+
+let eventBus = new Events()
 
 function plugin(Vue) {
     if (plugin.installed) {

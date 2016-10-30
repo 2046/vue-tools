@@ -28,7 +28,9 @@ function plugin(Vue) {
     }
 
     for(let key of Object.keys(plugin.plugins)) {
-        Vue.use(plugin.plugins[key])
+        if(['wx', 'ajax'].indexOf(key) === -1) {
+            Vue.use(plugin.plugins[key])
+        }
     }
 
     for(let key of Object.keys(plugin.components)) {
