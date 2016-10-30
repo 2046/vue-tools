@@ -1,6 +1,6 @@
 {
   "name": "vue-tools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "vue tools",
   "keywords": [
     "vue",
@@ -8,7 +8,7 @@
     "vue-tools",
     "vue-components"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/2046/vue-tools.git"
@@ -25,6 +25,7 @@
     "vue-router": "^2.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-runtime": "^6.9.0",
@@ -61,8 +62,12 @@
     "webpack-hot-middleware": "^2.10.0",
     "webpack-merge": "^0.15.0"
   },
+  "babel": {
+    "presets": ["es2015"]
+  },
   "scripts": {
     "start": "node examples/server.js",
+    "prepublish": "./node_modules/.bin/babel index.js -d dist",
     "test": "node_modules/.bin/karma start tests/karma.conf.js"
   }
 }
