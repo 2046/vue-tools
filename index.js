@@ -22,14 +22,20 @@ import confirm from '../plugins/confirm'
 import loading from '../plugins/loading'
 import eventBus from '../plugins/eventBus'
 
-function plugin(Vue) {
+function plugin(Vue, opts) {
     if(plugin.installed) {
         return
     }
 
+    opts = Object.assign({}, {
+        config: {}
+    }, opts)
+
     for(let key of Object.keys(plugin.plugins)) {
         if(['wx', 'ajax'].indexOf(key) === -1) {
             Vue.use(plugin.plugins[key])
+        }else if(opts.config[key]){
+            Vue.use(plugin.plugins[key], opts.config[key])
         }
     }
 
