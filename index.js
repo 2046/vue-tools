@@ -8,6 +8,7 @@ import Toast from '../components/toast'
 import Videos from '../components/video'
 import Layout from '../components/layout'
 import Headers from '../components/header'
+import Switchs from '../components/switch'
 import Loading from '../components/loading'
 import Confirm from '../components/confirm'
 import Infinite from '../components/infinite'
@@ -64,6 +65,7 @@ plugin.components = {
     Toast,
     Videos,
     Layout,
+    Switchs,
     Headers,
     Loading,
     Confirm,

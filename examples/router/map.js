@@ -44,6 +44,9 @@ export default {
     '/components/layout': {
         component: (resolve) => {require(['pages/components/layout'], resolve)}
     },
+    '/components/switch': {
+        component: (resolve) => {require(['pages/components/switch'], resolve)}
+    },
     '/plugins/alert': {
         component: (resolve) => {require(['pages/plugins/alert'], resolve)}
     },

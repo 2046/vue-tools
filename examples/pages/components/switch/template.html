@@ -1,0 +1,18 @@
+<Layout>
+    <div class="example">
+        <Cells class="cells">
+            <Cell class="cell">
+                <p slot="content">开启中 {{ enable }}</p>
+                <p slot="label">
+                    <Switchs v-model="enable"></Switchs>
+                </p>
+            </Cell>
+            <Cell class="cell">
+                <p slot="content">关闭 {{ enable2 }}</p>
+                <p slot="label">
+                    <Switchs v-model="enable2"></Switchs>
+                </p>
+            </Cell>
+        </Cells>
+    </div>
+</Layout>
