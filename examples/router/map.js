@@ -47,6 +47,9 @@ export default {
     '/components/switch': {
         component: (resolve) => {require(['pages/components/switch'], resolve)}
     },
+    '/components/checklist': {
+        component: (resolve) => {require(['pages/components/checklist'], resolve)}
+    },
     '/plugins/alert': {
         component: (resolve) => {require(['pages/plugins/alert'], resolve)}
     },
