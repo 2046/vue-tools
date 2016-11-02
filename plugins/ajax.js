@@ -11,7 +11,7 @@ function plugin(Vue, opts) {
 
     opts = Object.assign({}, {
         timeout: 10000,
-        errorCallback: alert
+        errorCallback(message) {alert(message)}
     }, opts)
 
     Vue.use(resource)
