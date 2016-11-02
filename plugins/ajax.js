@@ -34,7 +34,7 @@ function plugin(Vue, opts) {
             request.timerId = setTimeout(() => {
                 request.abort()
                 delete request.timerId
-                errorCallback('Network error')
+                opts.errorCallback('Network error')
             }, timeout)
         }
 
@@ -87,7 +87,7 @@ function plugin(Vue, opts) {
     Vue.http.interceptors.push((request, next) => {
         next((response) => {
             if(response.status === 0 && response.statusText === '') {
-                errorCallback('Network error')
+                opts.errorCallback('Network error')
             }
 
             if(response.status === 0 && response.statusText === 'repeat request') {
@@ -97,7 +97,7 @@ function plugin(Vue, opts) {
 
             if(response.status === 404) {
                 return new Vue.Promise(() => {
-                    errorCallback('not found')
+                    opts.errorCallback('not found')
                 })
             }
         })
