@@ -29,14 +29,17 @@ function plugin(Vue, opts) {
     }
 
     opts = Object.assign({}, {
-        config: {}
+        config: {},
+        exclude: []
     }, opts)
 
     for(let key of Object.keys(plugin.plugins)) {
-        if(['wx', 'ajax'].indexOf(key) === -1) {
-            Vue.use(plugin.plugins[key])
-        }else if(opts.config[key]){
-            Vue.use(plugin.plugins[key], opts.config[key])
+        if(opts.exclude.indexOf(key) === -1) {
+            if(opts.config[key]) {
+                Vue.use(plugin.plugins[key], opts.config[key])
+            }else {
+                Vue.use(plugin.plugins[key])
+            }
         }
     }
 

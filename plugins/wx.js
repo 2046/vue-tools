@@ -1,14 +1,19 @@
-function plugin(Vue, opts) {
+function plugin(Vue, opts = {}) {
     if(plugin.installed){
         return
     }
+
+    let apis, url, weixin
 
     if(!window.wx) {
         console.error('Please load the wechat js sdk, <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"><\/script>')
         return
     }
 
-    let apis, url, weixin
+    if(!opts.url) {
+        console.error('Configure the url parameter to inject the wechat js sdk configuration information')
+        return
+    }
 
     weixin = {}
     opts = Object.assign({}, { url: '' }, opts)
