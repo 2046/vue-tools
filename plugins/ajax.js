@@ -100,6 +100,12 @@ function plugin(Vue, opts) {
                     opts.errorCallback('not found')
                 })
             }
+
+            if(response.status === 500) {
+                return new Vue.Promise(() => {
+                    opts.errorCallback(response.statusText)
+                })
+            }
         })
     })
 }
