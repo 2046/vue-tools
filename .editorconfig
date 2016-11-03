@@ -7,12 +7,17 @@ end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
-[*.{js,php,py}]
+
+[*.js]
 
 # Change these settings to your own preference
+
+indent_style = tab
+indent_size = 4
+
+[{package.json,.travis.yml}]
 indent_style = space
 indent_size = 2
-
 
 [*.md]
 insert_final_newline = false
