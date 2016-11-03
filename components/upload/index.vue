@@ -4,7 +4,6 @@
 <script>
   import vue from 'vue'
   import vueResource from 'vue-resource'
-  import { isSameFile } from './utils'
   vue.use(vueResource)
 
   export default {
@@ -20,21 +19,15 @@
     },
     methods: {
       change(e){
-        let cache = []
-          , files = e.target.files
-          , fd = new FormData()
-          , file
+        let
+          fd = new FormData()
+          , file = e.target.files[0]
           , len = files.length
-        if (len == 0) {
+
+        if(!file){
           return
         }
-
         this.$emit('change', e)
-        if (len == 1) {
-          file = files[0]
-          // TODO: compress image
-          fd.append(this.name, file)
-        }
 
         this.$http.post(this.url, fd, {
           progress: args => {
