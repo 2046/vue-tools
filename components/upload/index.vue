@@ -25,23 +25,27 @@
           , fd = new FormData()
           , file
           , len = files.length
-        if(len == 0){
+        if (len == 0) {
           return
         }
 
-        this.$emit('changeHandler', e)
+        this.$emit('change', e)
         if (len == 1) {
           file = files[0]
           // TODO: compress image
           fd.append(this.name, file)
         }
 
-        this.$http.post(this.url, fd).then(response => {
+        this.$http.post(this.url, fd, {
+          progress: args => {
+            this.$emit('progress', args)
+          }
+        }).then(response => {
           e.target.value = ''
-          this.$emit('uploadHandler', response)
+          this.$emit('upload', response)
         }).catch(err => {
           e.target.value = ''
-          this.$emit('uploadHandler', err)
+          this.$emit('upload', err)
         })
       }
     }

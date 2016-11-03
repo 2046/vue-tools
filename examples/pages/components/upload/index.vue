@@ -20,7 +20,7 @@
 
 <template>
   <div class="box">
-    <Upload :url="url" :name="name" @changeHandler="change" @uploadHandler="upload"></Upload>
+    <Upload :url="url" :name="name" @change="change" @upload="upload" @progress="progress"></Upload>
   </div>
 </template>
 
@@ -44,6 +44,9 @@
       },
       change(args){
         console.log('change', args)
+      },
+      progress(args){
+        console.log('progress', args)
       }
     }
   }
