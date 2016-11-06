@@ -68,6 +68,9 @@ module.exports = {
         ]
     },
     devServer: {
-        noInfo: true
+        noInfo: true,
+        proxy: {
+            // read document: https://webpack.github.io/docs/webpack-dev-server.html
+        }
     }
 }
