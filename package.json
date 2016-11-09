@@ -71,7 +71,11 @@
   },
   "scripts": {
     "start": "node examples/server.js",
-    "prepublish": "./node_modules/.bin/babel index.js -d dist && ./bin/cli.js -c",
+    "cli": "./bin/cli.js",
+    "plugin": "npm run cli -- plugin $1",
+    "directive": "npm run cli -- directive $1",
+    "component": "npm run cli -- component $1",
+    "prepublish": "./node_modules/.bin/babel index.js -d dist",
     "test": "node_modules/.bin/karma start tests/karma.conf.js"
   }
 }
