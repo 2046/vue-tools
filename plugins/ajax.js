@@ -10,12 +10,15 @@ function plugin(Vue, opts) {
     }
 
     opts = Object.assign({}, {
+        headers: {},
         timeout: 10000,
         errorCallback(message) {alert(message)}
     }, opts)
 
     Vue.use(resource)
+    Vue.http.options.root = opts.root
     Vue.http.options.credentials = true
+    Vue.http.headers.common = opts.headers
     Vue.http.options.timeout = opts.timeout
 
     Vue.http.interceptors.push((request, next) => {
