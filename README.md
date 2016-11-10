@@ -1,6 +1,6 @@
 # Vue-tools
 
-# use scripts for dev soon
+### use scripts for dev soon
 
 ```
 npm run component alert // create alert component
