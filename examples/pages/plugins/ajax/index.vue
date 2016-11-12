@@ -36,9 +36,7 @@
     export default {
         methods: {
             load() {
-                this.$loading(true)
                 this.$http.jsonp('https://api.github.com/repos/2046/vue-tools').then((res) => {
-                    this.$loading(false)
                     alert(res.data.name)
                 })
             }

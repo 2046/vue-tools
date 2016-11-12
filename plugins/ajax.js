@@ -12,6 +12,7 @@ function plugin(Vue, opts) {
     opts = Object.assign({}, {
         headers: {},
         timeout: 10000,
+        duration: 1000,
         errorCallback(message) {alert(message)}
     }, opts)
 
@@ -20,6 +21,7 @@ function plugin(Vue, opts) {
     Vue.http.options.credentials = true
     Vue.http.headers.common = opts.headers
     Vue.http.options.timeout = opts.timeout
+    Vue.http.options.duration = opts.duration
 
     Vue.http.interceptors.push((request, next) => {
         let before, timeout
@@ -45,6 +47,23 @@ function plugin(Vue, opts) {
             clearTimeout(request.timerId)
             delete request.timerId
         })
+    })
+
+    Vue.http.interceptors.push((request, next) => {
+        if(request.duration === 0) {
+            next()
+        }else {
+            request.loadingTimerId = setTimeout(() => {
+                Vue.loading && Vue.loading(true)
+                delete request.loadingTimerId
+            }, request.duration)
+
+            next((response) => {
+                Vue.loading && Vue.loading(false)
+                clearTimeout(request.loadingTimerId)
+                delete request.loadingTimerId
+            })
+        }
     })
 
     Vue.http.interceptors.push((request, next) => {
