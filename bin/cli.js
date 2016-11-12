@@ -1,15 +1,16 @@
 #!/usr/bin/env node
-var program = require('commander')
-var chalk = require('chalk')
-var fs = require('fs')
-var path = require('path')
-var list = null
-var rootPath = process.cwd()
+var program, chalk, fs, path, list, rootPath, allowedInput, type, name, vueTemplate
 
-var allowedInput = ['component', 'directive', 'plugin']
-var type
-	, name
-	, vueTemplate = `<style src="./style.css" scoped></style>
+require('shelljs/global')
+fs = require('fs')
+path = require('path')
+chalk = require('chalk')
+program = require('commander')
+
+rootPath = process.cwd()
+
+allowedInput = ['component', 'directive', 'plugin']
+vueTemplate = `<style src="./style.css" scoped></style>
 <template src="./template.html"></template>
 <script>
   export default {
@@ -18,8 +19,6 @@ var type
     methods: {}
   }
 </script>`
-
-require('shelljs/global')
 
 try {
 	list = require('../config/list.json')
@@ -33,10 +32,6 @@ program
     .option('-l, --list', 'read all packages developed', readlist)
 	.option('-c, --config', 'create all developed list config', createConfig)
 	.parse(process.argv)
-
-/**
- * Help.
- */
 
 program.on('--help', function() {
 	console.log('  Examples:')
@@ -52,19 +47,19 @@ program.on('--help', function() {
 	console.log()
 })
 
-/**
- * Help.
- */
-
 function help () {
 	if(program.args.length < 1) return program.help()
 }
+
 function generateList () {
-	var files = fs.readdirSync(rootPath)
-		, dir
-		, list = {}
+	var files, dir, list
+
+	list = {}
+	files = fs.readdirSync(rootPath)
+
 	allowedInput.forEach(item => {
 		dir = path.resolve(path.join(rootPath, `${item}s`))
+
 		try {
 			list[item] = fs.readdirSync(dir)
 			if(item == 'plugin') {
@@ -78,13 +73,16 @@ function generateList () {
 			list[item] = []
 		}
 	})
+
 	if(!fs.existsSync(`${rootPath}/config`)) {
 		cd(rootPath)
 		mkdir('config')
 	}
+
 	fs.writeFileSync(`${rootPath}/config/list.json`, JSON.stringify(list, 2, '\t'), 'utf-8')
 	return list
 }
+
 function createConfig () {
 	generateList()
 	console.log()
@@ -92,9 +90,11 @@ function createConfig () {
 	console.log()
 	exit(1)
 }
+
 function toHeadUpper (s) {
 	return s.substr(0, 1).toUpperCase() + s.substr(1)
 }
+
 function readlist () {
 	console.log()
 	Object.keys(list).forEach(item => {
@@ -113,9 +113,6 @@ function readlist () {
 
 help()
 
-/**
- * Padding.
- */
 process.on('exit', function() {
 	console.log()
 })
@@ -133,23 +130,25 @@ if(program.args.length == 2) {
 	}
 	create(type, name)
 }
-function create (type, name) {
-	let target
 
-		, pluginTemplate = `function plugin(Vue) {
+function create (type, name) {
+	var target, pluginTemplate
+
+
+	pluginTemplate = `function plugin(Vue) {
 		if(plugin.installed){
 				return
 		}
 		// write your code
 }
 if(typeof window !== 'undefined' && window.Vue){
-		window.Vue.use(plugin)
+	window.Vue.use(plugin)
 }
 module.exports = plugin
 `
 	switch(type) {
 		case 'component':
-			const fileList = ['style.css', 'template.html', 'index.vue']
+			var fileList = ['style.css', 'template.html', 'index.vue']
 			target = `${rootPath}/${type}s/${name}`
 			if(fs.existsSync(target)) {
 				console.log(chalk.red(`   ${type} ${name} has been created`))
@@ -182,22 +181,27 @@ module.exports = plugin
 			console.log(chalk.green(`    ${type}s/${name}.js`))
 			break
 		case 'directive':
-			// TODO
 			break
 
 	}
+
 	createExamples(type, name)
 	generateList()
 }
+
 function createExamples (type, name) {
-	let target = `${rootPath}/examples/pages/${type}s/${name}`
+	var target, fileList
+
+	target = `${rootPath}/examples/pages/${type}s/${name}`
+
 	if(!fs.existsSync(target)) {
 		mkdir('-p', target)
 		console.log(chalk.green(`    examples/pages/${type}s/${name}`))
 	}
+
 	cd(target)
 
-	const fileList = ['template.html', 'index.vue']
+	fileList = ['template.html', 'index.vue']
 	fileList.forEach((item, i) => {
 		if(i == 1) {
 			exec(`echo "${vueTemplate}" > ${target}/index.vue`)
@@ -207,10 +211,12 @@ function createExamples (type, name) {
 		console.log(chalk.green(`    examples/pages/${type}s/${name}/${item}`))
 	})
 }
+
 function writeFile (path, data, options) {
 	if(!path || !data || !options) {
 		return Promise.reject('args empty')
 	}
+
 	return new Promise((resolve, reject) => {
 		fs.writeFile(path, data, options, function(err, data) {
 			if(err) reject(err)
