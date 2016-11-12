@@ -28,10 +28,8 @@
 <script>
     import Vue from 'vue'
     import ajax from 'plugins/ajax'
-    import loading from 'plugins/loading'
 
     Vue.use(ajax)
-    Vue.use(loading)
 
     export default {
         methods: {

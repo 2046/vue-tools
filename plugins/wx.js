@@ -3,42 +3,59 @@ function plugin(Vue, opts = {}) {
         return
     }
 
-    let apis, url, weixin
-
-    if(!window.wx) {
-        console.error('Please load the wechat js sdk, <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"><\/script>')
-        return
-    }
-
     if(!opts.url) {
         console.error('Configure the url parameter to inject the wechat js sdk configuration information')
         return
     }
 
+    let weixin, jssdk
+
     weixin = {}
-    opts = Object.assign({}, { url: '' }, opts)
-    url = `${opts.url}${opts.url.indexOf('?') < 0 ? '?' : '&'}url=${encodeURIComponent(location.href)}`
-    apis = Object.keys(window.wx).filter((item) => ['config', 'ready', 'error', 'checkJsApi'].indexOf(item) === -1)
+    jssdk = 'https://res.wx.qq.com/open/js/jweixin-1.0.0.js'
 
-    getJSONP(url, (res) => {
-        window.wx.config(Object.assign({}, res.data, {
-            debug: false,
-            jsApiList: apis
-        }))
+    getScript(jssdk, () => {
+        let url, apis, exclude
 
-        window.wx.error((res) => alert(JSON.stringify(res)))
-    })
+        exclude = ['config', 'ready', 'error', 'checkJsApi']
+        apis = Object.keys(window.wx).filter((item) => exclude.indexOf(item) === -1)
+        url = `${opts.url}${opts.url.indexOf('?') < 0 ? '?' : '&'}url=${encodeURIComponent(location.href)}`
 
-    apis.map((item) => {
-        weixin[item] = (options) => {
-            window.wx.ready(() => {
-                window.wx[item](options)
-            })
-        }
+        getJSONP(url, (res) => {
+            window.wx.config(Object.assign({}, res.data, {
+                debug: false,
+                jsApiList: apis
+            }))
+
+            window.wx.error((res) => alert(JSON.stringify(res)))
+        })
+
+        apis.map((item) => {
+            weixin[item] = (options) => {
+                window.wx.ready(() => {
+                    window.wx[item](options)
+                })
+            }
+        })
     })
 
     Vue.wx = weixin
     Vue.prototype.$wx = weixin
+}
+
+function getScript(url, callback) {
+    let script = document.createElement('script')
+    script.type = 'text/javascript'
+    script.async = true
+    script.src = url
+
+    scriptOnload(script, callback)
+
+    setTimeout(() => {
+        let element = document.getElementsByTagName('script')[0]
+        element.parentNode.insertBefore(script, element)
+    }, 0)
+
+    return script
 }
 
 function getJSONP(url, callback) {
@@ -61,6 +78,34 @@ function getJSONP(url, callback) {
         delete window[callbackName]
         let element = document.getElementById(callbackName)
         element.parentNode.removeChild(element)
+    }
+}
+
+function scriptOnload(el, fn) {
+    if(el.addEventListener) {
+        el.addEventListener('load', (_, e) => {
+            fn(null, e)
+        }, false)
+
+        el.addEventListener('error', (e) => {
+            let err = new Error(`script error ${el.src}`)
+            err.event = e
+            fn(err)
+        }, false)
+    }else {
+        el.attachEvent('onreadystatechange', (e) => {
+            if (!/complete|loaded/.test(el.readyState)) {
+                return
+            }
+
+            fn(null, e)
+        })
+
+        el.attachEvent('onerror', (e) => {
+            let err = new Error(`failed to load the script ${el.src}`)
+            err.event = e || window.event
+            fn(err)
+        })
     }
 }
 
