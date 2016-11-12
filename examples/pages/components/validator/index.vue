@@ -55,7 +55,7 @@
                 radio: '',
                 email: '',
                 number: '',
-                select: '',
+                select: '请选择',
                 textarea: '',
                 password: '',
                 checkbox: []

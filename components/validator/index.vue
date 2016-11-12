@@ -99,7 +99,7 @@
 
             refs[this.uuid = guid()] = this
             this.$el.dataset.uuid = this.uuid
-            this.$el.classList.add('validator')
+            this.$el.dataset.key = 'validator'
         },
         destroyed() {
             delete refs[this.uuid]

@@ -54,10 +54,11 @@
             <div class="field">
                 <label for="select">选择器</label>
                 <Validator name="选择器" required :model="select">
-                    <select id="select" v-model="select">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    <select v-model="select">
+                        <option>请选择</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
                     </select>
                 </Validator>
             </div>

@@ -12,7 +12,7 @@ definition = {
             let count, components, result
 
             count = 0
-            components = [...el.getElementsByClassName('validator')]
+            components = [...el.querySelectorAll('[data-key="validator"]')]
 
             if(binding.modifiers.prevent) {
                 e.preventDefault()
