@@ -7,11 +7,21 @@ addRule('date', /^\d{4}\-[01]?\d\-[0-3]?\d$|^[01]\d\/[0-3]\d\/\d{4}$|^\d{4}年[0
 addRule('number', /^[+-]?[1-9][0-9]*(\.[0-9]+)?([eE][+-][1-9][0-9]*)?$|^[+-]?0?\.[0-9]+([eE][+-][1-9][0-9]*)?$|^0$/, '{{name}}的格式不正确')
 
 addRule('required', (val, element, rule, ctx) => {
-    switch (element.type) {
+    let type = null
+
+    if(element.tagName.toLowerCase() === 'input') {
+        type = element.type
+    }else {
+        type = element.tagName.toLowerCase()
+    }
+
+    switch (type) {
         case 'radio':
             return Boolean(val)
         case 'checkbox':
             return Array.isArray(val) ? Boolean(val.length) : Boolean(val)
+        case 'select':
+            return Boolean(val.indexOf('请选择') === -1)
         default:
             return Boolean(trim(val))
     }
