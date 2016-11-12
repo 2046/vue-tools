@@ -1,12 +1,10 @@
 class Imager {
 	constructor (opts) {
 		const defaults = {
-			_isNeedCompress: false,
-			_isNeedRotate: false,
 			maxSize: 200 * 1024,
 			maxWidth: 1000,
 			maxHeight: 1000,
-			quality: 1,
+			quality: 0.9,
 			exifdata: {
 				Orientation: ''
 			}
@@ -19,16 +17,18 @@ class Imager {
 	static supportFileReader () {
 		return !!window.FileReader
 	}
-	static supportFile(){
+
+	static supportFile () {
 		return window.File && window.atob && window.Uint8Array
 	}
 
 	static isImage (file) {
 		return file.type.indexOf('image') > -1
 	}
+
 	// transfer base64 to file need the methods supportFile
-	static base64ToFile(dataurl, filename) {
-		if(!Imager.supportFile()){
+	static base64ToFile (dataurl, filename) {
+		if(!Imager.supportFile()) {
 			return dataurl
 		}
 
@@ -36,10 +36,10 @@ class Imager {
 			mime = arr[0].match(/:(.*?);/)[1],
 			bstr = atob(arr[1]),
 			n = bstr.length, u8arr = new Uint8Array(n)
-		while(n--){
+		while(n--) {
 			u8arr[n] = bstr.charCodeAt(n)
 		}
-		return new File([u8arr], filename, {type:mime})
+		return new File([u8arr], filename, {type: mime})
 	}
 
 	static rotateImg (img, direction, canvas) {
@@ -139,8 +139,7 @@ class Imager {
 						}
 					}
 
-					base64 = canvas.toDataURL("image/jpeg", quality)
-					resolve(base64)
+					resolve(canvas.toDataURL("image/jpeg", quality))
 				}
 			})
 		})
