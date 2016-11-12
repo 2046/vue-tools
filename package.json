@@ -52,6 +52,7 @@
     "koa-webpack-hot-middleware": "^1.0.3",
     "mocha": "^3.1.0",
     "postcss-px2rem": "^0.3.0",
+    "shelljs": "^0.7.5",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^2.0.6",
@@ -69,6 +70,10 @@
   },
   "scripts": {
     "start": "node examples/server.js",
+    "cli": "./bin/cli.js",
+    "plugin": "npm run cli -- plugin $1",
+    "directive": "npm run cli -- directive $1",
+    "component": "npm run cli -- component $1",
     "prepublish": "./node_modules/.bin/babel index.js -d dist",
     "test": "node_modules/.bin/karma start tests/karma.conf.js"
   }
