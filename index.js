@@ -13,6 +13,7 @@ import Loading from '../components/loading'
 import Confirm from '../components/confirm'
 import Infinite from '../components/infinite'
 import Validator from '../components/validator'
+import Upload from '../components/upload'
 
 import wx from '../plugins/wx'
 import env from '../plugins/env'
@@ -73,7 +74,8 @@ plugin.components = {
     Loading,
     Confirm,
     Infinite,
-    Validator
+    Validator,
+    Upload
 }
 
 if(typeof window !== 'undefined' && window.Vue){
