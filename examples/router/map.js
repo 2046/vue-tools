@@ -53,6 +53,9 @@ export default {
     '/components/upload': {
         component: (resolve) => {require(['pages/components/upload'], resolve)}
     },
+    '/components/progress': {
+        component: (resolve) => {require(['pages/components/progress'], resolve)}
+    },
     '/plugins/alert': {
         component: (resolve) => {require(['pages/plugins/alert'], resolve)}
     },
