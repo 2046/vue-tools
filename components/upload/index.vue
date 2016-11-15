@@ -3,10 +3,8 @@
 </template>
 
 <script>
-    import Imager from './Imager'
-    import ajax from 'plugins/ajax'
     import Vue from 'vue'
-    Vue.use(ajax)
+    import Imager from './Imager'
 
     export default {
         props: {

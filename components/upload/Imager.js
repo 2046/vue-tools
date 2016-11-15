@@ -1,4 +1,4 @@
-class Imager {
+module.exports = class Imager {
 	constructor (opts) {
 		const defaults = {
 			maxWidth: 1000,
@@ -141,10 +141,9 @@ class Imager {
 			})
 		})
 	}
-
-
 	getExif () {
 		const EXIF = require('exif-js')
+
 		return new Promise(resolve => {
 			EXIF.getData(this.file, () => {
 				EXIF.getAllTags(this.file)
@@ -152,7 +151,4 @@ class Imager {
 			})
 		})
 	}
-
 }
-
-export default Imager
