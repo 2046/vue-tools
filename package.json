@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/2046/vue-tools",
   "dependencies": {
-    "vue": "^2.0.0",
     "exif-js": "^2.1.1",
+    "vue": "^2.0.0",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.0"
   },
@@ -67,6 +67,9 @@
   "babel": {
     "presets": [
       "es2015"
+    ],
+    "plugins": [
+      "transform-runtime"
     ]
   },
   "scripts": {
@@ -75,7 +78,8 @@
     "plugin": "npm run cli -- plugin $1",
     "directive": "npm run cli -- directive $1",
     "component": "npm run cli -- component $1",
-    "prepublish": "./node_modules/.bin/babel index.js -d dist",
+    "build": "./node_modules/.bin/babel index.js -d dist && ./node_modules/.bin/babel plugin -d dist/plugin && cp -r component/ dist/component/ && ./node_modules/.bin/babel component --out-dir dist/component",
+    "prepublish": "npm run build",
     "test": "node_modules/.bin/karma start tests/karma.conf.js"
   }
 }
