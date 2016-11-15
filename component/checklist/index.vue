@@ -1,4 +1,4 @@
-<style src="./style.css" scoped></style>
+<style src="./style.css"></style>
 <template src="./template.html"></template>
 
 <script>
@@ -21,7 +21,7 @@
         methods: {
             changeBgColor(action, time, e) {
                 setTimeout(() => {
-                    e.target.parentNode.classList[action]('checklist__list--access')
+                    e.target.parentNode.classList[action]('vt-checklist__list--access')
                 }, time)
             }
         },

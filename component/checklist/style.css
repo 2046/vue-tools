@@ -1,8 +1,8 @@
-.checklist {
+.vt-checklist {
     border-top: 1px solid #D9D9D9; /*no*/
     border-bottom: 1px solid #D9D9D9; /*no*/
 }
-.checklist__list {
+.vt-checklist__list {
     position: relative;
     display: flex;
     padding: 20px 30px;
@@ -14,7 +14,7 @@
     background-color: #fff;
     user-select: none;
 }
-.checklist__list:after {
+.vt-checklist__list:after {
     position: absolute;
     left: 30px;
     bottom: 0;
@@ -24,11 +24,11 @@
     color: #D9D9D9;
     border-bottom: 1px solid #D9D9D9; /*no*/
 }
-.checklist__content {
+.vt-checklist__content {
     flex: 1;
     color: #000;
 }
-.checklist__radio {
+.vt-checklist__radio {
     position: absolute;
     top: 0;
     left: 0;
@@ -36,17 +36,17 @@
     height: 100%;
     opacity: 0;
 }
-.checklist__tick {
+.vt-checklist__tick {
     width: 30px;
     height: 30px;
     display: none;
 }
-.checklist__radio:checked + .checklist__tick {
+.vt-checklist__radio:checked + .vt-checklist__tick {
     display: block;
 }
-.checklist__list--access {
+.vt-checklist__list--access {
     background-color: #ECECEC;
 }
-.checklist__list:last-child:after{
+.vt-checklist__list:last-child:after{
     display: none;
 }

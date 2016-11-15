@@ -1,4 +1,4 @@
-.cell{
+.vt-cell{
     position: relative;
     display: flex;
     padding: 20px 30px;
@@ -10,7 +10,7 @@
     background-color: #fff;
     user-select: none;
 }
-.cell:before {
+.vt-cell:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -20,7 +20,7 @@
     color: #D9D9D9;
     border-top: 1px solid #D9D9D9; /*no*/
 }
-.cell:after {
+.vt-cell:after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -30,26 +30,26 @@
     color: #D9D9D9;
     border-bottom: 1px solid #D9D9D9; /*no*/
 }
-.cell__icon {
+.vt-cell__icon {
     display: flex;
     margin-right: 20px;
 }
-.cell__icon img{
+.vt-cell__icon img{
     vertical-align: top;
 }
-.cell__content {
+.vt-cell__content {
     flex: 1;
     color: #000;
 }
-.cell__label {
+.vt-cell__label {
     position: relative;
     color: #999;
     text-align: right;
 }
-.cell--link .cell__label {
+.vt-cell--link .vt-cell__label {
     padding-right: 26px;
 }
-.cell--link .cell__label:after {
+.vt-cell--link .vt-cell__label:after {
     position: absolute;
     top: 50%;
     right: 4px;
@@ -62,20 +62,20 @@
     border-style: solid;
     transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
 }
-.cell--access {
+.vt-cell--access {
     background-color: #ECECEC;
 }
-.cells .cell:before {
+.vt-cells .vt-cell:before {
     left: 30px;
 }
-.cells .cell:after {
+.vt-cells .vt-cell:after {
     height: 0;
     border-bottom-width: 0;
 }
-.cells .cell--first:before {
+.vt-cells .vt-cell--first:before {
     left: 0;
 }
-.cells .cell--last:after {
+.vt-cells .vt-cell--last:after {
     height: 1px; /*no*/
     border-bottom-width: 1px; /*no*/
 }

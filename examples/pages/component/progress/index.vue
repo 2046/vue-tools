@@ -19,20 +19,21 @@
 </style>
 <template>
     <div class="box">
-        <Progress class="box__item" value="20">
+        <Progresss class="box__item" value="20">
             <div slot="start">0%</div>
             <div slot="end">100%</div>
-        </Progress>
+        </Progresss>
 
-        <Progress :value="value" :bar-height="10">
-        </Progress>
+        <Progresss :value="value" :bar-height="10">
+        </Progresss>
         <input type="button" @touchstart="run" value="上传" class="button">
     </div>
 </template>
 <script>
     import Vue from 'vue'
     import toast from 'plugin/toast'
-    import Progress from 'component/progress'
+    import Progresss from 'component/progress'
+
     Vue.use(toast)
 
     export default {
@@ -59,7 +60,7 @@
             }
         },
         components: {
-            Progress
+            Progresss
         }
     }
 </script>

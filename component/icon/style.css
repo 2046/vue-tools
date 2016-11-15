@@ -1,10 +1,10 @@
-.icon {
+.vt-icon {
     display: inline-block;
     fill: currentColor;
 }
-.icon--flipToHorizontal {
+.vt-icon--flipToHorizontal {
     transform: scale(-1, 1);
 }
-.icon--flipToVertical {
+.vt-icon--flipToVertical {
     transform: scale(1, -1);
 }

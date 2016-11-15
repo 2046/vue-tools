@@ -1,7 +1,7 @@
-<style src="./style.css" scoped></style>
+<style src="./style.css"></style>
 
 <template>
-    <input type="checkbox" v-model="val" @change="$emit('change', val)">
+    <input type="checkbox" class="vt-checkbox" v-model="val" @change="$emit('change', val)">
 </template>
 
 <script>

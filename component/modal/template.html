@@ -1,7 +1,7 @@
-<transition name="fade">
-    <div class="modal" v-show="visible">
-        <transition name="zoomOut">
-            <div class="modal__container" v-show="visible">
+<transition name="vt-modal-fade">
+    <div class="vt-modal" v-show="visible">
+        <transition name="vt-modal-zoomOut">
+            <div class="vt-modal__container" v-show="visible">
                 <slot></slot>
             </div>
         </transition>

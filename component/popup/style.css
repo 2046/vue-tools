@@ -1,4 +1,4 @@
-.popup{
+.vt-popup{
     position: fixed;
     top: 0;
     left: 0;
@@ -7,24 +7,24 @@
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.5);
 }
-.popup__container{
+.vt-popup__container{
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
 }
-.popup__container--full{
+.vt-popup__container--full{
     height: 100%;
 }
-.fade-enter, .fade-leave-active{
+.vt-popup-fade-enter, .vt-popup-fade-leave-active{
     opacity: 0;
 }
-.fade-enter-active, .fade-leave-active{
+.vt-popup-fade-enter-active, .vt-popup-fade-leave-active{
     transition: opacity .4s;
 }
-.slideInUp-enter, .slideInUp-leave-active{
+.vt-popup-slideInUp-enter, .vt-popup-slideInUp-leave-active{
     transform: translate3d(0, 100%, 0);
 }
-.slideInUp-enter-active, .slideInUp-leave-active{
+.vt-popup-slideInUp-enter-active, .vt-popup-slideInUp-leave-active{
     transition: transform .3s;
 }

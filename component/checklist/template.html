@@ -1,8 +1,8 @@
-<div class="checklist">
-    <div class="checklist__list" v-for="item of options" @touchstart="changeBgColor('add', 0, $event)" @touchend="changeBgColor('remove', 150, $event)">
-        <div class="checklist__content">{{ item }}</div>
-        <input class="checklist__radio" v-model="val" :value="item" type="radio">
-        <svg version="1.1" viewBox="0 0 197.3 128" class="checklist__tick">
+<div class="vt-checklist">
+    <div class="vt-checklist__list" v-for="item of options" @touchstart="changeBgColor('add', 0, $event)" @touchend="changeBgColor('remove', 150, $event)">
+        <div class="vt-checklist__content">{{ item }}</div>
+        <input class="vt-checklist__radio" v-model="val" :value="item" type="radio">
+        <svg version="1.1" viewBox="0 0 197.3 128" class="vt-checklist__tick">
             <path d="M10.2,46.6l62.5,40.5L184.5,0l12.7,13.4L75.7,128L0,62.5L10.2,46.6z" fill="#09bb07"></path>
         </svg>
     </div>

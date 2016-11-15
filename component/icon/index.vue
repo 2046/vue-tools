@@ -26,8 +26,8 @@
             },
             classNames() {
                 return {
-                    'icon--flipToVertical': this.flip === 'vertical',
-                    'icon--flipToHorizontal': this.flip === 'horizontal'
+                    'vt-icon--flipToVertical': this.flip === 'vertical',
+                    'vt-icon--flipToHorizontal': this.flip === 'horizontal'
                 }
             },
             box: function () {

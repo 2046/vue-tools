@@ -1,4 +1,4 @@
-header {
+.vt-header {
     position: relative;
     display: flex;
     height: 88px;
@@ -8,17 +8,17 @@ header {
     align-items: center;
     z-index: 99;
 }
-.header__left {
+.vt-header__left {
     display: flex;
     flex: .5;
     justify-content: flex-start;
 }
-.header__right {
+.vt-header__right {
     display: flex;
     flex: .5;
     justify-content: flex-end;
 }
-.header__center {
+.vt-header__center {
     flex: 1;
     text-align: center;
     overflow: hidden;

@@ -1,16 +1,16 @@
-<style src="./style.css" scoped></style>
+<style src="./style.css"></style>
 <template src="./template.html"></template>
 
 <script>
     import Vue from 'vue'
 
     Vue.component('Cells', {
-        template: '<div class="cells"><slot></slot></div>',
+        template: '<div class="vt-cells"><slot></slot></div>',
         mounted() {
             let $cells = this.$el.querySelectorAll('[data-hook="cell-component"]')
 
-            $cells[0].classList.add('cell--first')
-            $cells[$cells.length - 1].classList.add('cell--last')
+            $cells[0].classList.add('vt-cell--first')
+            $cells[$cells.length - 1].classList.add('vt-cell--last')
         }
     })
 
@@ -21,7 +21,7 @@
         methods: {
             changeBgColor(action, time) {
                 setTimeout(() => {
-                    this.arrow && this.$el.classList[action]('cell--access')
+                    this.arrow && this.$el.classList[action]('vt-cell--access')
                 }, time)
             }
         }

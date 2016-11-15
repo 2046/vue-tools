@@ -1,4 +1,4 @@
-<style src="./style.css" scoped></style>
+<style src="./style.css"></style>
 <template src="./template.html"></template>
 
 <script>
@@ -25,7 +25,7 @@
         methods: {
             changeBgColor(action, time, e) {
                 setTimeout(() => {
-                    e.target.classList[action]('button--access')
+                    e.target.classList[action]('vt-confirm-button--access')
                 }, time)
             }
         }

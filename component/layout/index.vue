@@ -1,5 +1,5 @@
-<style scoped>
-    .wrap{
+<style>
+    .vt-wrap{
         position: absolute;
         top: 0;
         right: 0;
@@ -8,22 +8,22 @@
         display: flex;
         flex-direction: column;
     }
-    main{
+    .vt-main{
         position: relative;
         flex: 1;
         height: 100%;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
     }
-    main::-webkit-scrollbar{
+    .vt-main::-webkit-scrollbar{
         display: none;
     }
 </style>
 
 <template>
-    <div class="wrap">
+    <div class="vt-wrap">
         <slot name="header"></slot>
-        <main class="main"><slot></slot></main>
+        <main class="vt-main"><slot></slot></main>
         <slot name="footer"></slot>
         <slot name="overlay"></slot>
     </div>

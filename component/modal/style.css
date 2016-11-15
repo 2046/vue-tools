@@ -1,4 +1,4 @@
-.modal {
+.vt-modal {
     display: flex;
     position: fixed;
     top: 0;
@@ -10,7 +10,7 @@
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
 }
-.modal__container {
+.vt-modal__container {
     width: 75%;
     max-width: 560px;
     flex-direction: column;
@@ -18,20 +18,20 @@
     background-color: #fff;
     overflow: hidden;
 }
-.fade-enter, .fade-leave-active {
+.vt-modal-fade-enter, .vt-modal-fade-leave-active {
     opacity: 0;
 }
-.fade-enter-active, .fade-leave-active {
+.vt-modal-fade-enter-active, .vt-modal-fade-leave-active {
     transition: opacity .4s;
 }
-.zoomOut-enter {
+.vt-modal-zoomOut-enter {
     opacity: 0;
     transform: scale(1.185);
 }
-.zoomOut-enter-active {
+.vt-modal-zoomOut-enter-active {
     transition: transform .4s, opacity .4s;
 }
-.zoomOut-leave-active {
+.vt-modal-zoomOut-leave-active {
     opacity: 0;
     transition: opacity .4s;
 }
