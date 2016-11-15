@@ -1,4 +1,4 @@
-let Alert = require('../components/alert')
+let Alert = require('../component/alert')
 
 function plugin(Vue) {
     if(plugin.installed){

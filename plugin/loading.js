@@ -1,4 +1,4 @@
-let Loading = require('../components/loading')
+let Loading = require('../component/loading')
 
 function plugin(Vue) {
     if(plugin.installed){

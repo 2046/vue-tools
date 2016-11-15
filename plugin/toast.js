@@ -1,4 +1,4 @@
-let Toast = require('../components/toast')
+let Toast = require('../component/toast')
 
 function plugin(Vue) {
     if(plugin.installed){
