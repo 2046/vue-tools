@@ -8,15 +8,18 @@
         color: #888;
         font-size: 28px;
     }
+    .img{
+        width: 100%;
+    }
 </style>
 <template src="./template.html"></template>
 
 <script>
-    import Cell from 'component/cell'
+    import Swipe from 'component/swipe'
 
     export default {
         components: {
-            Cell
+            Swipe
         }
     }
 </script>

@@ -18,8 +18,8 @@ module.exports = {
         alias: {
             'vue': 'vue/dist/vue.js',
             'pages': path.resolve(__dirname, 'pages'),
-            'plugins': path.resolve(__dirname, '..', 'plugins'),
-            'components': path.resolve(__dirname, '..', 'components')
+            'plugin': path.resolve(__dirname, '..', 'plugin'),
+            'component': path.resolve(__dirname, '..', 'component')
         }
     },
     plugins: [

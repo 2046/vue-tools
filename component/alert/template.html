@@ -1,14 +1,14 @@
-<transition name="fade">
-    <div class="alert" v-show="visible">
-        <transition name="zoomOut">
-            <div class="alert__container" v-show="visible">
-                <p class="alert__title" :class="{'alert__title--text': text}">
-                    <strong class="alert__title--bold">{{title}}</strong>
+<transition name="vt-alert-fade">
+    <div class="vt-alert" v-show="visible">
+        <transition name="vt-alert-zoomOut">
+            <div class="vt-alert__container" v-show="visible">
+                <p class="vt-alert__title" :class="{'vt-alert__title--text': text}">
+                    <strong class="vt-alert__title--bold">{{title}}</strong>
                 </p>
-                <p class="alert__info" v-if="text">
-                    <span class="alert__info--left">{{text}}</span>
+                <p class="vt-alert__info" v-if="text">
+                    <span class="vt-alert__info--left">{{text}}</span>
                 </p>
-                <a class="alert__button" href="javascript:;" @click="$emit('hide')" @touchstart="changeBgColor('add', 0, $event)" @touchend="changeBgColor('remove', 150, $event)">{{buttonText}}</a>
+                <a class="vt-alert__button" href="javascript:;" @click="$emit('hide')" @touchstart="changeBgColor('add', 0, $event)" @touchend="changeBgColor('remove', 150, $event)">{{buttonText}}</a>
             </div>
         </transition>
     </div>
