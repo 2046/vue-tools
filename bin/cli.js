@@ -149,14 +149,14 @@ module.exports = plugin
 	switch(type) {
 		case 'component':
 			var fileList = ['style.css', 'template.html', 'index.vue']
-			target = `${rootPath}/${type}s/${name}`
+			target = `${rootPath}/${type}/${name}`
 			if(fs.existsSync(target)) {
 				console.log(chalk.red(`   ${type} ${name} has been created`))
 				return
 			}
 			mkdir('-p', target)
 			console.log(chalk.blue(`    created ${type} ${name} successfully`))
-			console.log(chalk.green(`    ${type}s/${name}`))
+			console.log(chalk.green(`    ${type}/${name}`))
 
 			cd(target)
 			fileList.forEach((item, i) => {
@@ -165,12 +165,12 @@ module.exports = plugin
 				} else {
 					touch(item)
 				}
-				console.log(chalk.green(`    ${type}s/${name}/${item}`))
+				console.log(chalk.green(`    ${type}/${name}/${item}`))
 			})
 
 			break
 		case 'plugin':
-			target = `${rootPath}/${type}s/${name}.js`
+			target = `${rootPath}/${type}/${name}.js`
 			if(fs.existsSync(target)) {
 				console.log(chalk.red(`   ${type} ${name} has been created`))
 				return
@@ -178,7 +178,7 @@ module.exports = plugin
 			exec(`echo "${pluginTemplate}" > ${target}`)
 			console.log(chalk.blue(`    created ${type} ${name} successfully`))
 			console.log()
-			console.log(chalk.green(`    ${type}s/${name}.js`))
+			console.log(chalk.green(`    ${type}/${name}.js`))
 			break
 		case 'directive':
 			break
@@ -192,11 +192,11 @@ module.exports = plugin
 function createExamples (type, name) {
 	var target, fileList
 
-	target = `${rootPath}/examples/pages/${type}s/${name}`
+	target = `${rootPath}/examples/pages/${type}/${name}`
 
 	if(!fs.existsSync(target)) {
 		mkdir('-p', target)
-		console.log(chalk.green(`    examples/pages/${type}s/${name}`))
+		console.log(chalk.green(`    examples/pages/${type}/${name}`))
 	}
 
 	cd(target)
@@ -208,7 +208,7 @@ function createExamples (type, name) {
 		} else {
 			touch(item)
 		}
-		console.log(chalk.green(`    examples/pages/${type}s/${name}/${item}`))
+		console.log(chalk.green(`    examples/pages/${type}/${name}/${item}`))
 	})
 }
 
