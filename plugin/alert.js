@@ -1,50 +1,63 @@
-let Alert = require('../component/alert')
+import Alert from '../component/alert'
 
 function plugin(Vue) {
     if(plugin.installed){
         return
     }
 
-    let Component, component, container, propsData
+    let Component, component, container, props
 
-    propsData = {
+    props = {
         text: '',
         title: '',
+        hide() {},
+        button: '确定',
         visible: false
     }
 
-    Component = Vue.extend(Alert)
+    Component = Vue.extend({
+        props: {
+            options: {
+                type: Object,
+                default() {
+                    return props
+                }
+            }
+        },
+        render(createElement) {
+            return createElement(Alert, {
+                props: {
+                    visible: this.options.visible
+                },
+                on: {
+                    hide: function(){
+                        this.options.visible = false
+                        this.options.hide()
+                    }.bind(this)
+                }
+            }, [
+                createElement('p', { slot: 'text' }, this.options.text),
+                createElement('p', { slot: 'title' }, this.options.title),
+                createElement('p', { slot: 'button' }, this.options.button)
+            ])
+        }
+    })
+
     container = document.createElement('div')
     document.getElementsByTagName('body')[0].appendChild(container)
-    component = new Component({propsData}).$mount(container)
+    component = new Component().$mount(container)
 
-    function method(title = '', text = '', buttonText, onHide = noop) {
-        if(typeof buttonText === 'function') {
-            onHide = buttonText
-            buttonText = ''
+    function method(options) {
+        component.options = {
+            ...props,
+            ...options,
+            visible: true
         }
-
-        component.text = text
-        component.title = title
-        component.visible = true
-
-        if(buttonText) {
-            component.buttonText = buttonText
-        }else {
-            component.buttonText = '确定'
-        }
-
-        component.$on('hide', () => {
-            onHide()
-            component.visible = false
-        })
     }
 
     Vue.alert = method
     Vue.prototype.$alert = method
 }
-
-function noop(){}
 
 if(typeof window !== 'undefined' && window.Vue){
     window.Vue.use(plugin)

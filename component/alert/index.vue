@@ -4,24 +4,20 @@
 <script>
     export default {
         props: {
-            text: String,
-            title: {
-                type: String,
-                required: true
-            },
             visible: {
                 type: Boolean,
                 required: true
-            },
-            buttonText: {
-                type: String,
-                default: '确定'
+            }
+        },
+        data() {
+            return {
+                access: false
             }
         },
         methods: {
-            changeBgColor(action, time, e) {
+            handle(time) {
                 setTimeout(() => {
-                    e.target.classList[action]('alert__button--access')
+                    this.access = !this.access
                 }, time)
             }
         }

@@ -23,8 +23,14 @@
             <div class="button" @click="visibleAlert = true">Show Alert Dialog</div>
             <div class="button" @click="visibleMessageAlert = true">Show Message Alert Dialog</div>
 
-            <Alert :visible="visibleAlert" title="Example" @hide="visibleAlert = false"></Alert>
-            <Alert :visible="visibleMessageAlert" title="Example" text="Example text" @hide="visibleMessageAlert = false"></Alert>
+            <Alert :visible="visibleAlert" @hide="visibleAlert = false">
+                <p slot="title">Example</p>
+            </Alert>
+            <Alert :visible="visibleMessageAlert" @hide="visibleMessageAlert = false">
+                <p slot="title">Example</p>
+                <p slot="text">Example text</p>
+                <p slot="button">OK</p>
+            </Alert>
         </div>
     </Layout>
 </template>

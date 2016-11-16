@@ -23,7 +23,12 @@
         margin-bottom: 0;
     }
 </style>
-<template src="./template.html"></template>
+<template>
+    <div class="example">
+        <button @click="showAlert">Show Alert Dialog</button>
+        <button @click="showAlertMessage">Show Alert Message Dialog</button>
+    </div>
+</template>
 
 <script>
     import Vue from 'vue'
@@ -34,11 +39,18 @@
     export default {
         methods: {
             showAlert() {
-                this.$alert('Example')
+                this.$alert({
+                    title: 'Example'
+                })
             },
             showAlertMessage() {
-                this.$alert('Example', 'Example text', () => {
-                    console.log('hide')
+                this.$alert({
+                    button: 'OK',
+                    title: 'Example',
+                    text: 'Example text',
+                    hide() {
+                        console.log('hide')
+                    }
                 })
             }
         }

@@ -2,13 +2,15 @@
     <div class="vt-alert" v-show="visible">
         <transition name="vt-alert-zoomOut">
             <div class="vt-alert__container" v-show="visible">
-                <p class="vt-alert__title" :class="{'vt-alert__title--text': text}">
-                    <strong class="vt-alert__title--bold">{{title}}</strong>
-                </p>
-                <p class="vt-alert__info" v-if="text">
-                    <span class="vt-alert__info--left">{{text}}</span>
-                </p>
-                <a class="vt-alert__button" href="javascript:;" @click="$emit('hide')" @touchstart="changeBgColor('add', 0, $event)" @touchend="changeBgColor('remove', 150, $event)">{{buttonText}}</a>
+                <div class="vt-alert__title">
+                    <slot name="title"></slot>
+                </div>
+                <div class="vt-alert__info">
+                    <slot name="text"></slot>
+                </div>
+                <div class="vt-alert__button" :class="{'vt-alert__button--access': access}" @click="$emit('hide')" @touchstart="handle(0)" @touchend="handle(200)">
+                    <slot name="button">确定</slot>
+                </div>
             </div>
         </transition>
     </div>
