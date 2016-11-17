@@ -25,6 +25,16 @@ function plugin(Vue) {
             }
         },
         render(createElement) {
+            let children = [createElement('p', { slot: 'button' }, this.options.button)]
+
+            if(this.options.title) {
+                children.push(createElement('p', { slot: 'title' }, this.options.title))
+            }
+
+            if(this.options.text) {
+                children.push(createElement('p', { slot: 'text' }, this.options.text))
+            }
+
             return createElement(Alert, {
                 props: {
                     visible: this.options.visible
@@ -35,11 +45,7 @@ function plugin(Vue) {
                         this.options.hide()
                     }.bind(this)
                 }
-            }, [
-                createElement('p', { slot: 'text' }, this.options.text),
-                createElement('p', { slot: 'title' }, this.options.title),
-                createElement('p', { slot: 'button' }, this.options.button)
-            ])
+            }, children)
         }
     })
 

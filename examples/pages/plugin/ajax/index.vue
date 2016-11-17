@@ -23,7 +23,13 @@
         margin-bottom: 0;
     }
 </style>
-<template src="./template.html"></template>
+<template>
+    <Layout>
+        <div class="example">
+            <button @click="load">Load Resource</button>
+        </div>
+    </Layout>
+</template>
 
 <script>
     import Vue from 'vue'

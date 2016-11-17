@@ -12,7 +12,6 @@
 }
 .vt-alert__container {
     width: 75%;
-    max-width: 560px;
     flex-direction: column;
     border-radius: 7px;
     background-color: #fff;
