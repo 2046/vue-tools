@@ -32,6 +32,7 @@
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-stage-3": "^6.17.0",
     "babel-runtime": "^6.18.0",
     "chai": "^3.5.0",
     "chalk": "^1.1.3",
@@ -66,7 +67,8 @@
   },
   "babel": {
     "presets": [
-      "es2015"
+      "es2015",
+      "stage-0"
     ],
     "plugins": [
       "transform-runtime"
@@ -78,7 +80,7 @@
     "plugin": "npm run cli -- plugin $1",
     "directive": "npm run cli -- directive $1",
     "component": "npm run cli -- component $1",
-    "build": "./node_modules/.bin/babel index.js -d dist && ./node_modules/.bin/babel plugin -d dist/plugin && cp -r component/ dist/component/ && ./node_modules/.bin/babel component --out-dir dist/component",
+    "build": "./node_modules/.bin/babel index.js -d dist && ./node_modules/.bin/babel plugin -d dist/plugin && cp -r component/ dist/component/ && ./node_modules/.bin/babel component --out-dir dist/component && rm -rf dist",
     "prepublish": "npm run build",
     "test": "node_modules/.bin/karma start tests/karma.conf.js"
   }
