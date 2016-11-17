@@ -4,28 +4,26 @@
 <script>
     export default {
         props: {
-            text: String,
-            title: {
-                type: String,
-                required: true
-            },
             visible: {
                 type: Boolean,
                 required: true
-            },
-            buttonOkText: {
-                type: String,
-                default: '确定'
-            },
-            buttonCancelText: {
-                type: String,
-                default: '取消'
+            }
+        },
+        data() {
+            return {
+                cancelAccess: false,
+                confirmAccess: false
             }
         },
         methods: {
-            changeBgColor(action, time, e) {
+            confirmHandle(time) {
                 setTimeout(() => {
-                    e.target.classList[action]('vt-confirm-button--access')
+                    this.confirmAccess = !this.confirmAccess
+                }, time)
+            },
+            cancelHandle(time) {
+                setTimeout(() => {
+                    this.cancelAccess = !this.cancelAccess
                 }, time)
             }
         }

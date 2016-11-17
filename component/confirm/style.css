@@ -19,21 +19,16 @@
     overflow: hidden;
 }
 .vt-confirm__title {
-    padding: 40px 20px 20px;
+    padding: 40px 20px 0;
     font-size: 36px;
     line-height: 70px;
+    font-weight: 400;
     text-align: center;
     word-wrap: break-word;
     word-break: break-all;
 }
-.vt-confirm__title--text {
-    padding-bottom: 0;
-}
-.vt-confirm__title--bold {
-    font-weight: 400;
-}
 .vt-confirm__info {
-    padding: 0 30px 20px;
+    padding: 0 30px;
     color: #999;
     font-size: 30px;
     line-height: 50px;
@@ -41,12 +36,9 @@
     word-wrap: break-word;
     word-break: break-all;
 }
-.vt-confirm__info--left{
-    text-align: left;
-    display: inline-block;
-}
 .vt-confirm__button {
     display: flex;
+    margin-top: 20px;
     flex-direction: row-reverse;
 }
 .vt-confirm__button--ok,

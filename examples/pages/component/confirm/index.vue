@@ -23,8 +23,15 @@
             <div class="button" @click="visibleConfirm = true">Show Confirm</div>
             <div class="button" @click="visibleConfirm1 = true">Show Confirm text</div>
 
-            <Confirm :visible="visibleConfirm" title="Example" @hide="hide"></Confirm>
-            <Confirm :visible="visibleConfirm1" title="Example" text="confirm contont text" @hide="hide1"></Confirm>
+            <Confirm :visible="visibleConfirm" @hide="hide">
+                <p slot="title">Example</p>
+            </Confirm>
+            <Confirm :visible="visibleConfirm1" @hide="hide1">
+                <p slot="title">Example</p>
+                <p slot="text">confirm contont text</p>
+                <p slot="confirmButton">ok</p>
+                <p slot="cancelButton">cancel</p>
+            </Confirm>
         </div>
     </Layout>
 </template>
@@ -47,7 +54,7 @@
             },
             hide1(val) {
                 this.visibleConfirm1 = false
-                console.log(val+'1')
+                console.log(val)
             }
         },
         components: {

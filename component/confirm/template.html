@@ -2,15 +2,19 @@
     <div class="vt-confirm" v-show="visible">
         <transition name="vt-confirm-zoomOut">
             <div class="vt-confirm__container" v-show="visible">
-                <p class="vt-confirm__title" :class="{'vt-confirm__title--text': text}">
-                    <strong class="vt-confirm__title--bold">{{title}}</strong>
+                <p class="vt-confirm__title">
+                    <slot name="title"></slot>
                 </p>
-                <p class="vt-confirm__info" v-if="text">
-                    <span class="vt-confirm__info--left">{{text}}</span>
+                <p class="vt-confirm__info">
+                    <slot name="text"></slot>
                 </p>
                 <div class="vt-confirm__button">
-                    <a class="vt-confirm__button--ok" href="javascript:;" @click="$emit('hide', true)" @touchstart="changeBgColor('add', 0, $event)" @touchend="changeBgColor('remove', 150, $event)">{{buttonOkText}}</a>
-                    <a class="vt-confirm__button--cancel" href="javascript:;" @click="$emit('hide', false)" @touchstart="changeBgColor('add', 0, $event)" @touchend="changeBgColor('remove', 150, $event)">{{buttonCancelText}}</a>
+                    <div class="vt-confirm__button--ok" :class="{'vt-confirm-button--access': confirmAccess}" @click="$emit('hide', true)" @touchstart="confirmHandle(0)" @touchend="confirmHandle(200)">
+                        <slot name="confirmButton">确定</slot>
+                    </div>
+                    <div class="vt-confirm__button--cancel" :class="{'vt-confirm-button--access': cancelAccess}" @click="$emit('hide', false)" @touchstart="cancelHandle(0)" @touchend="cancelHandle(200)">
+                        <slot name="cancelButton">取消</slot>
+                    </div>
                 </div>
             </div>
         </transition>

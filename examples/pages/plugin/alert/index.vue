@@ -24,10 +24,12 @@
     }
 </style>
 <template>
-    <div class="example">
-        <button @click="showAlert">Show Alert Dialog</button>
-        <button @click="showAlertMessage">Show Alert Message Dialog</button>
-    </div>
+    <Layout>
+        <div class="example">
+            <button @click="showAlert">Show Alert Dialog</button>
+            <button @click="showAlertMessage">Show Alert Message Dialog</button>
+        </div>
+    </Layout>
 </template>
 
 <script>

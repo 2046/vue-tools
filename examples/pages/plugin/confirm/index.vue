@@ -23,7 +23,14 @@
         margin-bottom: 0;
     }
 </style>
-<template src="./template.html"></template>
+<template>
+    <Layout>
+        <div class="example">
+            <button @click="showConfirm">Show Confirm Dialog</button>
+            <button @click="showConfirmMessage">Show Confirm Message Dialog</button>
+        </div>
+    </Layout>
+</template>
 
 <script>
     import Vue from 'vue'
@@ -34,11 +41,19 @@
     export default {
         methods: {
             showConfirm() {
-                this.$confirm('Example')
+                this.$confirm({
+                    title: 'Example'
+                })
             },
             showConfirmMessage() {
-                this.$confirm('Example', 'Example text', (bool) => {
-                    console.log('hide', bool)
+                this.$confirm({
+                    title: 'Example',
+                    text: 'Example text',
+                    confirmButton: 'ok',
+                    cancelButton: 'cancel',
+                    hide(bool) {
+                        console.log('hide', bool)
+                    }
                 })
             }
         }

@@ -1,61 +1,65 @@
-let Confirm = require('../component/confirm')
+import Confirm from '../component/confirm'
 
 function plugin(Vue) {
     if(plugin.installed){
         return
     }
 
-    let Component, component, container, propsData
+    let Component, component, container, props
 
-    propsData = {
+    props = {
         text: '',
         title: '',
-        visible: false
+        hide() {},
+        visible: false,
+        cancelButton: '取消',
+        confirmButton: '确定',
     }
 
-    Component = Vue.extend(Confirm)
+    Component = Vue.extend({
+        props: {
+            options: {
+                type: Object,
+                default() {
+                    return props
+                }
+            }
+        },
+        render(createElement) {
+            return createElement(Confirm, {
+                props: {
+                    visible: this.options.visible
+                },
+                on: {
+                    hide: function(val){
+                        this.options.visible = false
+                        this.options.hide(val)
+                    }.bind(this)
+                }
+            }, [
+                createElement('p', { slot: 'text' }, this.options.text),
+                createElement('p', { slot: 'title' }, this.options.title),
+                createElement('p', { slot: 'cancelButton' }, this.options.cancelButton),
+                createElement('p', { slot: 'confirmButton' }, this.options.confirmButton)
+            ])
+        }
+    })
+
     container = document.createElement('div')
     document.getElementsByTagName('body')[0].appendChild(container)
-    component = new Component({propsData}).$mount(container)
+    component = new Component().$mount(container)
 
-    function method(title = '', text = '', buttonOkText, buttonCancelText, onHide = noop) {
-        if(typeof buttonOkText === 'function') {
-            onHide = buttonOkText
-            buttonOkText = ''
+    function method(options) {
+        component.options = {
+            ...props,
+            ...options,
+            visible: true
         }
-
-        if(typeof buttonCancelText === 'function') {
-            onHide = buttonCancelText
-            buttonCancelText = ''
-        }
-
-        component.text = text
-        component.title = title
-        component.visible = true
-
-        if(buttonOkText) {
-            component.buttonOkText = buttonOkText
-        }else {
-            component.buttonOkText = '确定'
-        }
-
-        if(buttonCancelText) {
-            component.buttonCancelText = buttonCancelText
-        }else {
-            component.buttonCancelText = '取消'
-        }
-
-        component.$on('hide', (bool) => {
-            onHide(bool)
-            component.visible = false
-        })
     }
 
     Vue.confirm = method
     Vue.prototype.$confirm = method
 }
-
-function noop(){}
 
 if(typeof window !== 'undefined' && window.Vue){
     window.Vue.use(plugin)
