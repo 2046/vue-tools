@@ -4,7 +4,7 @@
 
 <script>
     import Vue from 'vue'
-    import Imager from './Imager'
+    import Imager from 'Imager'
 
     export default {
         props: {
