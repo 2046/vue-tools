@@ -4,7 +4,7 @@
 
 <script>
     import Vue from 'vue'
-    import Imager from './Imager'
+    import Imager from 'Imager'
 
     export default {
         props: {
@@ -42,9 +42,9 @@
                         return image.loaded()
                     }).then(base64 => {
                         if(this.base64) {
-                            this.upload(base64)
+                            this.upload(base64, base64)
                         } else {
-                            this.upload(Imager.base64ToFile(base64, file.name))
+                            this.upload(Imager.base64ToFile(base64, file.name), base64)
                         }
                     })
                 } else {
