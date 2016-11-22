@@ -1,5 +1,5 @@
 <template>
-    <input type="file" @change="change($event)"/>
+    <input type="file" :accept="accept" @change="change($event)"/>
 </template>
 
 <script>
@@ -20,6 +20,10 @@
             },
             base64: {
                 type: Boolean
+            },
+            accept: {
+                type: String,
+                default: 'image/*'
             }
         },
         methods: {
