@@ -1,5 +1,5 @@
 <template>
-    <input type="file" @change="change($event)"/>
+    <input type="file" :accept="accept" @change="change($event)"/>
 </template>
 
 <script>
@@ -20,6 +20,10 @@
             },
             base64: {
                 type: Boolean
+            },
+            accept: {
+                type: String,
+                default: 'image/*'
             }
         },
         methods: {
@@ -32,7 +36,6 @@
                     return
                 }
                 this.$emit('change', e)
-
                 if(Imager.isImage(file) && this.compress) {
                     image = new Imager({
                         file: file,
@@ -52,7 +55,7 @@
                 }
 
             },
-            upload(file){
+            upload(file, base64){
                 if(this.url) {
                     let fd = new FormData()
                     fd.append(this.name, file)
@@ -62,12 +65,12 @@
                         }
                     }).then(response => {
                         console.log(response)
-                        this.$emit('upload', response)
+                        this.$emit('upload', response, base64)
                     }).catch(response => {
-                        this.$emit('upload', response)
+                        this.$emit('upload', response, base64)
                     })
                 } else {
-                    this.$emit('upload', file)
+                    this.$emit('upload', file, base64)
                     this.$emit('progress', function() {
                         console.warn('if url was not input, progress not work')
                     })
