@@ -30,7 +30,6 @@
         <br><img :src="src" alt="">
 
         <Upload compress
-                base64
                 @change="change2"
                 @upload="upload2"></Upload>
         <br><img :src="src2" alt="">
@@ -52,14 +51,15 @@
             Upload
         },
         methods: {
-            upload(url){
+            upload(url, base64){
                 if(typeof url == 'object'){
                     console.log(url)
                 } else {
                     this.src = url
                 }
             },
-            upload2(base64){
+            upload2(file, base64){
+                console.log(file)
                 this.src2 = base64
             },
             change(args){
