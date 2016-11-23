@@ -13,7 +13,7 @@ function plugin(Vue, opts) {
         headers: {},
         timeout: 10000,
         duration: 1000,
-        errorCallback(message) {alert(message)}
+        errorCallback(message) { alert(message) }
     }, opts)
 
     Vue.use(resource)
@@ -24,10 +24,10 @@ function plugin(Vue, opts) {
     Vue.http.options.duration = opts.duration
 
     Vue.http.interceptors.push((request, next) => {
-        let before, timeout
+        let before, time, timeout
 
+        time = request.timeout
         before = request.before
-        timeout = request.timeout
 
         delete request.timeout
 
@@ -36,16 +36,18 @@ function plugin(Vue, opts) {
                 before.call(this, request)
             }
 
-            request.timerId = setTimeout(() => {
+            timeout = setTimeout(() => {
                 request.abort()
-                delete request.timerId
-                opts.errorCallback('Network error')
-            }, timeout)
+
+                next(request.respondWith(request.body, {
+                    status: 0,
+                    statusText: ''
+                }))
+            }, time)
         }
 
         next((response) => {
-            clearTimeout(request.timerId)
-            delete request.timerId
+            clearTimeout(timeout)
         })
     })
 
@@ -53,15 +55,13 @@ function plugin(Vue, opts) {
         if(request.duration === 0) {
             next()
         }else {
-            request.loadingTimerId = setTimeout(() => {
+            let timeout = setTimeout(() => {
                 Vue.loading && Vue.loading(true)
-                delete request.loadingTimerId
             }, request.duration)
 
             next((response) => {
+                clearTimeout(timeout)
                 Vue.loading && Vue.loading(false)
-                clearTimeout(request.loadingTimerId)
-                delete request.loadingTimerId
             })
         }
     })
@@ -79,21 +79,28 @@ function plugin(Vue, opts) {
     })
 
     Vue.http.interceptors.push((request, next) => {
-        let uid = `${request.method.toLowerCase()}${request.url}${request.data ? JSON.stringify(request.data) : ''}`
+        let uid = ''
 
-        if (CACHE.indexOf(uid) < 0) {
+        if(request.method.toLowerCase() === 'get') {
+            uid = `${request.method.toLowerCase()}${request.url}${request.params ? JSON.stringify(request.params) : ''}`
+        }
+
+        if(request.method.toLowerCase() === 'post'){
+            uid = `${request.method.toLowerCase()}${request.url}${request.data ? JSON.stringify(request.data) : ''}`
+        }
+
+        if (CACHE.indexOf(uid) === -1) {
             CACHE.push(uid)
+
+            next((response) => {
+                CACHE.splice(CACHE.indexOf(uid), 1)
+            })
         }else{
             next(request.respondWith(request.body, {
                 status: 0,
                 statusText: 'repeat request'
             }))
-            return
         }
-
-        next((response) => {
-            CACHE.splice(CACHE.indexOf(uid), 1)
-        })
     })
 
     Vue.http.interceptors.push((request, next) => {
@@ -109,24 +116,19 @@ function plugin(Vue, opts) {
     Vue.http.interceptors.push((request, next) => {
         next((response) => {
             if(response.status === 0 && response.statusText === '') {
-                opts.errorCallback('Network error')
+                return new Vue.Promise(opts.errorCallback.bind(null, 'Network error'))
             }
 
             if(response.status === 0 && response.statusText === 'repeat request') {
-                console.error('The last request was in the pending state, not to send multiple requests')
-                return new Vue.Promise(() => {})
+                return new Vue.Promise(() => console.error('The last request was in the pending state, not to send multiple requests'))
             }
 
             if(response.status === 404) {
-                return new Vue.Promise(() => {
-                    opts.errorCallback('not found')
-                })
+                return new Vue.Promise(opts.errorCallback.bind(null, 'not found'))
             }
 
             if(response.status === 500) {
-                return new Vue.Promise(() => {
-                    opts.errorCallback(response.statusText)
-                })
+                return new Vue.Promise(opts.errorCallback.bind(null, response.statusText))
             }
         })
     })
