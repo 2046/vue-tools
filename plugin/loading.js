@@ -26,6 +26,11 @@ function plugin(Vue) {
 
         counter = visible ? counter + 1 : counter - 1
 
+        if(!visible && counter === -1) {
+            counter = 0
+            return
+        }
+
         if(!visible && counter !== 0) {
             return
         }
