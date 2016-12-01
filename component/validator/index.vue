@@ -36,8 +36,7 @@
                 rule = rule.concat(this.max ? 'max': [])
                 rule = rule.concat(this.minlength ? 'minlength': [])
                 rule = rule.concat(this.maxlength ? 'maxlength': [])
-                rule = rule.concat(this.rule || [])
-
+                rule = rule.concat(this.rule.split(/\s+\|\s+/g) || [])
                 return rule
             }
         },

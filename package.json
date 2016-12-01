@@ -1,6 +1,6 @@
 {
   "name": "vue-tools",
-  "version": "0.0.35",
+  "version": "0.0.38",
   "description": "vue tools",
   "keywords": [
     "vue",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/2046/vue-tools",
   "dependencies": {
-    "Imager": "^0.1.2",
+    "Imager": "^0.1.4",
     "vue": "^2.0.0",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.0"
