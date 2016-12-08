@@ -116,7 +116,7 @@ function plugin(Vue, opts) {
     Vue.http.interceptors.push((request, next) => {
         next((response) => {
             if(response.status === 0 && response.statusText === '') {
-                return new Vue.Promise(opts.errorCallback.bind(null, 'Network error'))
+                return new Vue.Promise(opts.errorCallback.bind(null, '网络超时'))
             }
 
             if(response.status === 0 && response.statusText === 'repeat request') {
@@ -124,7 +124,7 @@ function plugin(Vue, opts) {
             }
 
             if(response.status === 404) {
-                return new Vue.Promise(opts.errorCallback.bind(null, 'not found'))
+                return new Vue.Promise(opts.errorCallback.bind(null, '找不到数据'))
             }
 
             if(response.status === 500) {
