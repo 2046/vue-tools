@@ -5,7 +5,11 @@
     import Vue from 'vue'
 
     Vue.component('Cells', {
-        template: '<div class="vt-cells"><slot></slot></div>',
+        render(h) {
+            return h('div', {
+                class: 'vt-cells'
+            }, this.$slots.default)
+        },
         mounted() {
             let $cells = this.$el.querySelectorAll('[data-hook="cell-component"]')
 
