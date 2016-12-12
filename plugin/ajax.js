@@ -126,10 +126,6 @@ function plugin(Vue, opts) {
             if(response.status === 404) {
                 return new Vue.Promise(opts.errorCallback.bind(null, '找不到数据'))
             }
-
-            if(response.status === 500) {
-                return new Vue.Promise(opts.errorCallback.bind(null, response.statusText))
-            }
         })
     })
 }
