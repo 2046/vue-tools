@@ -12,15 +12,14 @@
                 required: true
             }
         },
-        data() {
-            return { val: this.value }
-        },
-        updated() {
-            this.val = this.value
-        },
-        watch: {
-            val(value) {
-                this.$emit('input', value)
+        computed: {
+            val: {
+                get() {
+                    return this.value
+                },
+                set(value) {
+                    this.$emit('input', value)
+                }
             }
         }
     }
