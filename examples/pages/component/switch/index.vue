@@ -24,6 +24,9 @@
                 enable2: false
             }
         },
+        mounted() {
+            window.vm = this
+        },
         components: {
             Cell,
             Switchs

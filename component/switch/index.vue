@@ -15,6 +15,9 @@
         data() {
             return { val: this.value }
         },
+        updated() {
+            this.val = this.value
+        },
         watch: {
             val(value) {
                 this.$emit('input', value)
