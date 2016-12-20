@@ -16,7 +16,6 @@ import Validator from './component/validator'
 import Upload from './component/upload'
 import Progress from './component/progress'
 
-import wx from './plugin/wx'
 import env from './plugin/env'
 import ajax from './plugin/ajax'
 import alert from './plugin/alert'
@@ -51,7 +50,6 @@ function plugin(Vue, opts) {
 }
 
 plugin.plugins = {
-    wx,
     env,
     ajax,
     alert,
