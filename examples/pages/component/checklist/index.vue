@@ -16,6 +16,12 @@
                 ]
             }
         },
+        mounted(){
+            setTimeout(() => {
+                this.value = '中信银行'
+                console.log('hello')
+            }, 1000)
+        },
         components: {
             CheckList
         }

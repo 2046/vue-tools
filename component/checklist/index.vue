@@ -13,11 +13,6 @@
                 required: true
             }
         },
-        data() {
-            return {
-                val: this.value
-            }
-        },
         methods: {
             changeBgColor(action, time, e) {
                 setTimeout(() => {
@@ -25,9 +20,14 @@
                 }, time)
             }
         },
-        watch: {
-            val(value) {
-                this.$emit('input', value)
+        computed: {
+            val: {
+                get(){
+                    return this.value
+                },
+                set(value) {
+                    this.$emit('input', value)
+                }
             }
         }
     }
