@@ -16,6 +16,11 @@
                 ]
             }
         },
+        mounted(){
+            setTimeout(() => {
+                this.value = '中信银行'
+            }, 1000)
+        },
         components: {
             CheckList
         }
