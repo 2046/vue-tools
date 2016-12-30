@@ -80,10 +80,6 @@ var _progress = require('./component/progress');
 
 var _progress2 = _interopRequireDefault(_progress);
 
-var _env = require('./plugin/env');
-
-var _env2 = _interopRequireDefault(_env);
-
 var _ajax = require('./plugin/ajax');
 
 var _ajax2 = _interopRequireDefault(_ajax);
@@ -174,7 +170,6 @@ function plugin(Vue, opts) {
 }
 
 plugin.plugins = {
-    env: _env2.default,
     ajax: _ajax2.default,
     alert: _alert4.default,
     toast: _toast4.default,

@@ -16,7 +16,6 @@ import Validator from './component/validator'
 import Upload from './component/upload'
 import Progress from './component/progress'
 
-import env from './plugin/env'
 import ajax from './plugin/ajax'
 import alert from './plugin/alert'
 import toast from './plugin/toast'
@@ -49,7 +48,6 @@ function plugin(Vue, opts) {
 }
 
 plugin.plugins = {
-    env,
     ajax,
     alert,
     toast,
