@@ -1,0 +1,22 @@
+<transition name="vt-confirm-fade">
+    <div class="vt-confirm" v-show="visible">
+        <transition name="vt-confirm-zoomOut">
+            <div class="vt-confirm__container" v-show="visible">
+                <p class="vt-confirm__title">
+                    <slot name="title"></slot>
+                </p>
+                <p class="vt-confirm__info">
+                    <slot name="text"></slot>
+                </p>
+                <div class="vt-confirm__button">
+                    <div class="vt-confirm__button--ok" :class="{'vt-confirm-button--access': confirmAccess}" @click="$emit('hide', true)" @touchstart="confirmHandle(0)" @touchend="confirmHandle(200)">
+                        <slot name="confirmButton">确定</slot>
+                    </div>
+                    <div class="vt-confirm__button--cancel" :class="{'vt-confirm-button--access': cancelAccess}" @click="$emit('hide', false)" @touchstart="cancelHandle(0)" @touchend="cancelHandle(200)">
+                        <slot name="cancelButton">取消</slot>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+</transition>

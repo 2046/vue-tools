@@ -1,0 +1,77 @@
+.vt-confirm {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.vt-confirm__container {
+    width: 75%;
+    flex-direction: column;
+    border-radius: 7px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.vt-confirm__title {
+    padding: 40px 20px 0;
+    font-size: 36px;
+    line-height: 70px;
+    font-weight: 400;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.vt-confirm__info {
+    padding: 0 30px;
+    color: #999;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.vt-confirm__button {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row-reverse;
+}
+.vt-confirm__button--ok,
+.vt-confirm__button--cancel {
+    flex: 2;
+    display: block;
+    height: 100px;
+    color: #00c200;
+    font-size: 36px;
+    line-height: 100px;
+    text-align: center;
+    border-top: 1px solid #d5d5d6; /*no*/
+}
+.vt-confirm__button--cancel{
+    color: #888;
+    border-right: 0.5px solid #d5d5d6; /*no*/
+}
+.vt-confirm-button--access {
+    background-color: #ECECEC;
+}
+.vt-confirm-fade-enter, .vt-confirm-fade-leave-active {
+    opacity: 0;
+}
+.vt-confirm-fade-enter-active, .vt-confirm-fade-leave-active {
+    transition: opacity .4s;
+}
+.vt-confirm-zoomOut-enter {
+    opacity: 0;
+    transform: scale(1.185);
+}
+.vt-confirm-zoomOut-enter-active {
+    transition: transform .4s, opacity .4s;
+}
+.vt-confirm-zoomOut-leave-active {
+    opacity: 0;
+    transition: opacity .4s;
+}

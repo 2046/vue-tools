@@ -1,0 +1,17 @@
+<transition name="vt-alert-fade">
+    <div class="vt-alert" v-show="visible">
+        <transition name="vt-alert-zoomOut">
+            <div class="vt-alert__container" v-show="visible">
+                <div class="vt-alert__title">
+                    <slot name="title"></slot>
+                </div>
+                <div class="vt-alert__info">
+                    <slot name="text"></slot>
+                </div>
+                <div class="vt-alert__button" :class="{'vt-alert__button--access': access}" @click="$emit('hide')" @touchstart="handle(0)" @touchend="handle(200)">
+                    <slot name="button">确定</slot>
+                </div>
+            </div>
+        </transition>
+    </div>
+</transition>

@@ -22,7 +22,6 @@ import alert from './plugin/alert'
 import toast from './plugin/toast'
 import confirm from './plugin/confirm'
 import loading from './plugin/loading'
-import eventBus from './plugin/eventBus'
 
 function plugin(Vue, opts) {
     if(plugin.installed) {
@@ -55,8 +54,7 @@ plugin.plugins = {
     alert,
     toast,
     confirm,
-    loading,
-    eventBus
+    loading
 }
 plugin.components = {
     Cell,

@@ -1,0 +1,37 @@
+.vt-modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.vt-modal__container {
+    width: 75%;
+    max-width: 560px;
+    flex-direction: column;
+    border-radius: 7px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.vt-modal-fade-enter, .vt-modal-fade-leave-active {
+    opacity: 0;
+}
+.vt-modal-fade-enter-active, .vt-modal-fade-leave-active {
+    transition: opacity .4s;
+}
+.vt-modal-zoomOut-enter {
+    opacity: 0;
+    transform: scale(1.185);
+}
+.vt-modal-zoomOut-enter-active {
+    transition: transform .4s, opacity .4s;
+}
+.vt-modal-zoomOut-leave-active {
+    opacity: 0;
+    transition: opacity .4s;
+}
