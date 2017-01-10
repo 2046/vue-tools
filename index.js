@@ -51,27 +51,17 @@ plugin.plugins = {
     ajax,
     alert,
     toast,
-    confirm,
     loading
 }
 plugin.components = {
     Cell,
-    Icon,
     Alert,
-    Modal,
-    Popup,
-    Swipe,
     Toast,
-    Videos,
     Layout,
-    Switchs,
     Headers,
     Loading,
-    Confirm,
-    Infinite,
     Validator,
-    Upload,
-    Progress
+    Upload
 }
 
 if(typeof window !== 'undefined' && window.Vue){

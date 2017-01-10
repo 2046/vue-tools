@@ -173,27 +173,17 @@ plugin.plugins = {
     ajax: _ajax2.default,
     alert: _alert4.default,
     toast: _toast4.default,
-    confirm: _confirm4.default,
     loading: _loading4.default
 };
 plugin.components = {
     Cell: _cell2.default,
-    Icon: _icon2.default,
     Alert: _alert2.default,
-    Modal: _modal2.default,
-    Popup: _popup2.default,
-    Swipe: _swipe2.default,
     Toast: _toast2.default,
-    Videos: _video2.default,
     Layout: _layout2.default,
-    Switchs: _switch2.default,
     Headers: _header2.default,
     Loading: _loading2.default,
-    Confirm: _confirm2.default,
-    Infinite: _infinite2.default,
     Validator: _validator2.default,
-    Upload: _upload2.default,
-    Progress: _progress2.default
+    Upload: _upload2.default
 };
 
 if (typeof window !== 'undefined' && window.Vue) {
