@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Layout from 'component/layout'
+import Validator from 'vt-validator'
 
-Vue.component('Layout', Layout)
+Vue.component('Validator', Validator)
 
 new Vue({
     router,

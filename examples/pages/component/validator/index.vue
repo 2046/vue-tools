@@ -43,11 +43,10 @@
 <template src="./template.html"></template>
 
 <script>
-    import Validator from 'component/validator'
-
     export default {
         data() {
             return {
+                bool: false,
                 tel: '',
                 url: '',
                 date: '',
@@ -71,8 +70,10 @@
                 alert('验证通过')
             }
         },
-        components: {
-            Validator
+        mounted() {
+            setTimeout(() => {
+                this.bool = true
+            }, 200)
         }
     }
 </script>

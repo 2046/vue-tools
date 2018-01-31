@@ -15,7 +15,7 @@
 <template src="./template.html"></template>
 
 <script>
-    import Swipe from 'component/swipe'
+    import Swipe from 'vt-swipe'
 
     export default {
         components: {
